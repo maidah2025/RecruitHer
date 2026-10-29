@@ -1,0 +1,924 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import React, { useState } from 'react';
+import {
+  ArrowRight,
+  Briefcase,
+  Building2,
+  Calculator,
+  Calendar,
+  Check,
+  Clock,
+  FileText,
+  Headphones,
+  Languages,
+  Layers,
+  Menu,
+  Monitor,
+  Phone,
+  Puzzle,
+  Scale,
+  Users,
+  X,
+} from 'lucide-react';
+import { BrandMark, SparkleSeparator } from './components/BrandMark';
+import {
+  AssessmentAreaItem,
+  BOOKING_HIRING_HREF,
+  CONTACT_CONFIG,
+  IndustryItem,
+  ServiceCardItem,
+  SITE_CONTENT,
+} from './content/siteContent';
+
+function IndustryIcon({ type }: { type: IndustryItem['iconType'] }) {
+  switch (type) {
+    case 'scale':
+      return <Scale className="w-5 h-5 stroke-[1.8]" />;
+    case 'calculator':
+      return <Calculator className="w-5 h-5 stroke-[1.8]" />;
+    case 'building':
+      return <Building2 className="w-5 h-5 stroke-[1.8]" />;
+    case 'briefcase':
+      return <Briefcase className="w-5 h-5 stroke-[1.8]" />;
+    case 'layers':
+      return <Layers className="w-5 h-5 stroke-[1.8]" />;
+  }
+}
+
+function ServiceIcon({ type }: { type: ServiceCardItem['iconType'] }) {
+  switch (type) {
+    case 'scale':
+      return <Scale className="w-5 h-5 stroke-[1.8]" />;
+    case 'calculator':
+      return <Calculator className="w-5 h-5 stroke-[1.8]" />;
+    case 'users':
+      return <Users className="w-5 h-5 stroke-[1.8]" />;
+    case 'calendar':
+      return <Calendar className="w-5 h-5 stroke-[1.8]" />;
+    case 'headset':
+      return <Headphones className="w-5 h-5 stroke-[1.8]" />;
+  }
+}
+
+function AssessmentIcon({ type }: { type: AssessmentAreaItem['iconType'] }) {
+  switch (type) {
+    case 'languages':
+      return <Languages className="w-6 h-6 stroke-[1.8]" />;
+    case 'puzzle':
+      return <Puzzle className="w-6 h-6 stroke-[1.8]" />;
+    case 'clock':
+      return <Clock className="w-6 h-6 stroke-[1.8]" />;
+    case 'monitor':
+      return <Monitor className="w-6 h-6 stroke-[1.8]" />;
+  }
+}
+
+export default function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const closeMobileMenu = () => setMobileMenuOpen(false);
+
+  return (
+    <div id="top" className="min-h-screen bg-black text-black flex flex-col scroll-mt-24">
+      {/* ================= HEADER ================= */}
+      <header className="bg-black text-white sticky top-0 z-50 border-b border-[#3D3D4A]/40">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-8 h-20 flex items-center justify-between gap-3 sm:gap-8">
+          {/* Brand Logo */}
+          <a
+            href="#top"
+            className="inline-flex items-center gap-2 sm:gap-2.5 whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#672CFF] rounded-md"
+            aria-label="RecruitHer Home"
+          >
+            <BrandMark variant="logo" className="w-6 h-7 shrink-0" />
+            <span className="text-lg sm:text-xl tracking-tight text-white">
+              <span className="font-bold">Recruit</span>
+              <span className="font-medium">Her</span>
+            </span>
+          </a>
+
+          {/* Desktop Navigation */}
+          <nav
+            aria-label="Primary Navigation"
+            className="hidden md:flex items-center gap-7 lg:gap-10 text-sm font-medium text-white/85"
+          >
+            {SITE_CONTENT.header.navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="hover:text-white transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#672CFF] rounded-sm"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Header Right: Get Started Button + Mobile Hamburger Toggle */}
+          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+            <a
+              href={BOOKING_HIRING_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-[#672CFF] hover:bg-[#2F198C] text-white text-xs sm:text-sm font-semibold px-4 py-2.5 sm:px-6 sm:py-2.5 rounded-xl transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF2C5B]"
+            >
+              {SITE_CONTENT.header.ctaLabel}
+            </a>
+
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-[#3D3D4A] text-white hover:bg-[#3D3D4A]/40 transition-colors shrink-0 focus-visible:outline-2 focus-visible:outline-[#672CFF]"
+              aria-expanded={mobileMenuOpen}
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Dropdown Menu */}
+        {mobileMenuOpen && (
+          <nav
+            aria-label="Mobile Navigation"
+            className="md:hidden bg-black border-b border-[#3D3D4A]/60 px-5 pt-3 pb-6 space-y-3"
+          >
+            {SITE_CONTENT.header.navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={closeMobileMenu}
+                className="block py-2 text-base font-medium text-white/90 hover:text-white border-b border-[#3D3D4A]/30"
+              >
+                {item.label}
+              </a>
+            ))}
+            <div className="pt-2 flex flex-col sm:flex-row gap-3">
+              <a
+                href={BOOKING_HIRING_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMobileMenu}
+                className="inline-flex items-center justify-center bg-[#672CFF] hover:bg-[#2F198C] text-white text-sm font-semibold px-5 py-3 rounded-xl text-center"
+              >
+                {SITE_CONTENT.header.ctaLabel}
+              </a>
+              <a
+                href={CONTACT_CONFIG.emailHref}
+                onClick={closeMobileMenu}
+                className="inline-flex items-center justify-center border border-[#3D3D4A] text-white text-sm font-semibold px-5 py-3 rounded-xl text-center"
+              >
+                Email us
+              </a>
+            </div>
+          </nav>
+        )}
+      </header>
+
+      <main className="flex-1">
+        {/* ================= 1. HERO SECTION ================= */}
+        <section className="bg-black text-white pt-10 pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
+          <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+              {/* Left Column */}
+              <div className="lg:col-span-6 xl:col-span-6">
+                {/* Subheading Badge */}
+                <div className="inline-flex items-center gap-3 rounded-full border border-[#3D3D4A] bg-black p-1.5 pr-5 mb-8">
+                  <span className="bg-[#FF2C5B] text-black text-xs font-bold px-3.5 py-1 rounded-full tracking-tight">
+                    Remote
+                  </span>
+                  <span className="text-xs sm:text-[13px] font-medium text-white/90">
+                    {SITE_CONTENT.hero.subheading}
+                  </span>
+                </div>
+
+                {/* Headline */}
+                <h1 className="text-[42px] sm:text-[58px] lg:text-[64px] xl:text-[70px] font-bold tracking-[-0.03em] leading-[1.04] text-white">
+                  <span className="block">{SITE_CONTENT.hero.headlineLine1}</span>
+                  <span className="block mt-1">
+                    <span>{SITE_CONTENT.hero.headlineLine2Prefix}</span>
+                    <span className="font-serif-italic font-semibold text-[#FF2C5B]">
+                      {SITE_CONTENT.hero.headlineLine2Italic}
+                    </span>
+                  </span>
+                </h1>
+
+                {/* Prominent Subheading */}
+                <p className="text-lg sm:text-xl lg:text-[22px] font-semibold text-white tracking-tight mt-5">
+                  {SITE_CONTENT.hero.subheading}
+                </p>
+
+                {/* Description */}
+                <p className="text-base sm:text-lg lg:text-[18px] text-[#8B8B94] leading-[1.6] mt-4 max-w-[510px] font-normal">
+                  {SITE_CONTENT.hero.description}
+                </p>
+
+                {/* Primary & Secondary CTA Buttons */}
+                <div className="flex flex-wrap items-center gap-4 mt-9">
+                  <a
+                    href={BOOKING_HIRING_HREF}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2.5 bg-[#672CFF] hover:bg-[#2F198C] text-white text-sm sm:text-[15px] font-semibold px-7 py-4 rounded-xl transition-colors whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF2C5B]"
+                  >
+                    <span>{SITE_CONTENT.hero.primaryCta}</span>
+                    <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                  </a>
+
+                  <a
+                    href={CONTACT_CONFIG.emailHref}
+                    className="inline-flex items-center justify-center border border-[#3D3D4A] hover:border-[#8B8B94] bg-transparent text-white text-sm sm:text-[15px] font-semibold px-9 py-4 rounded-xl transition-colors whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#672CFF]"
+                  >
+                    {SITE_CONTENT.hero.secondaryCta}
+                  </a>
+                </div>
+
+                {/* Benefits Checklist */}
+                <div className="border-t border-[#3D3D4A]/50 mt-10 pt-5 max-w-[560px]">
+                  <ul className="flex flex-wrap items-center gap-x-6 gap-y-2.5 text-xs sm:text-[13px] text-white/85 font-medium">
+                    {SITE_CONTENT.hero.benefits.map((benefit) => (
+                      <li
+                        key={benefit}
+                        className="inline-flex items-center gap-2 whitespace-nowrap"
+                      >
+                        <Check className="w-3.5 h-3.5 text-[#FF2C5B] stroke-[3] shrink-0" />
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Right Column — Decorative Brand Graphic & Floating Role Cards */}
+              <div className="lg:col-span-6 xl:col-span-6 flex justify-center lg:justify-end">
+                <div className="relative w-full max-w-[460px] sm:max-w-[500px] lg:mr-4 py-4">
+                  {/* Outer Dark Frame */}
+                  <div className="bg-[#2F198C]/20 rounded-[28px] p-5 sm:p-7 border border-[#3D3D4A]/40 shadow-2xl">
+                    <div className="bg-black rounded-[20px] h-[380px] sm:h-[440px] flex items-end justify-center pt-10 px-6 overflow-hidden relative">
+                      <BrandMark
+                        variant="decorative"
+                        className="w-[240px] sm:w-[285px] h-auto select-none translate-y-2"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Top-Left Floating Card: Customer Support */}
+                  <div className="absolute top-9 sm:top-12 left-2 sm:-left-7 bg-white text-black rounded-2xl px-4 sm:px-5 py-3.5 sm:py-4 shadow-[0_18px_40px_rgba(0,0,0,0.45)] flex items-center gap-3.5 max-w-[250px] sm:max-w-[290px] z-10">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#EDE6FF] text-[#672CFF] flex items-center justify-center shrink-0">
+                      <Headphones className="w-5 h-5 stroke-[2]" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs sm:text-sm font-bold text-black leading-tight truncate">
+                        {SITE_CONTENT.hero.floatingCards.topCard.title}
+                      </p>
+                      <p className="text-[11px] sm:text-xs text-[#3D3D4A] mt-0.5 truncate">
+                        {SITE_CONTENT.hero.floatingCards.topCard.subtitle}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Middle-Right Floating Card */}
+                  <div className="absolute top-[42%] -translate-y-1/2 right-2 sm:-right-6 bg-[#FF2C5B] text-black rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 shadow-[0_18px_40px_rgba(0,0,0,0.45)] z-10">
+                    <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-black/80">
+                      {SITE_CONTENT.hero.floatingCards.middleBadge.eyebrow}
+                    </p>
+                    <p className="text-base sm:text-xl font-bold text-black tracking-tight mt-0.5 whitespace-nowrap">
+                      {SITE_CONTENT.hero.floatingCards.middleBadge.title}
+                    </p>
+                  </div>
+
+                  {/* Bottom-Left Floating Card: Legal Support */}
+                  <div className="absolute bottom-8 sm:bottom-11 left-2 sm:-left-7 bg-white text-black rounded-2xl px-4 sm:px-5 py-3.5 sm:py-4 shadow-[0_18px_40px_rgba(0,0,0,0.45)] flex items-center gap-3.5 max-w-[250px] sm:max-w-[290px] z-10">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#FFEEF2] text-[#FF2C5B] flex items-center justify-center shrink-0">
+                      <FileText className="w-5 h-5 stroke-[2]" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs sm:text-sm font-bold text-black leading-tight truncate">
+                        {SITE_CONTENT.hero.floatingCards.bottomCard.title}
+                      </p>
+                      <p className="text-[11px] sm:text-xs text-[#3D3D4A] mt-0.5 truncate">
+                        {SITE_CONTENT.hero.floatingCards.bottomCard.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Full-Width Primary Purple Service Strip */}
+        <section aria-label="Core Services" className="bg-[#672CFF] text-white py-5 sm:py-6">
+          <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
+            <div className="flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-8 lg:gap-x-10 gap-y-3 text-center">
+              {SITE_CONTENT.serviceStrip.map((service, index) => (
+                <React.Fragment key={service}>
+                  <span className="text-base sm:text-xl lg:text-[22px] font-bold tracking-tight text-white whitespace-nowrap">
+                    {service}
+                  </span>
+                  {index < SITE_CONTENT.serviceStrip.length - 1 && (
+                    <SparkleSeparator className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF2C5B] shrink-0" />
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ================= 2. TRUSTED BY ================= */}
+        <section
+          aria-label="Trusted By Client Brands"
+          className="bg-white border-b border-[#EFEFF1] py-7 sm:py-8"
+        >
+          <div className="max-w-[1140px] mx-auto px-5 sm:px-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#8B8B94] whitespace-nowrap shrink-0">
+                {SITE_CONTENT.trustedBy.label}
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 items-center gap-4 sm:gap-5 w-full md:flex-1 max-w-[940px]">
+                {SITE_CONTENT.trustedBy.clients.map((client) => (
+                  <a
+                    key={client.name}
+                    href={client.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={client.name}
+                    title={client.name}
+                    className="h-14 sm:h-16 rounded-xl border border-[#EFEFF1] hover:border-[#672CFF] bg-white hover:bg-[#EDE6FF]/20 flex items-center justify-center px-4 py-2.5 transition-colors"
+                  >
+                    <img
+                      src={client.logoSrc}
+                      alt={`${client.name} logo`}
+                      loading="lazy"
+                      className={
+                        client.imgClassName || 'max-h-8 w-auto object-contain'
+                      }
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= 3. WHO WE HELP ================= */}
+        <section id="who-we-help" className="bg-white py-20 lg:py-28 scroll-mt-24">
+          <div className="max-w-[1140px] mx-auto px-5 sm:px-8">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12">
+              <div className="max-w-[600px]">
+                <p className="text-[11px] font-bold tracking-[0.15em] text-[#672CFF] uppercase mb-3">
+                  {SITE_CONTENT.whoWeHelp.eyebrow}
+                </p>
+                <h2 className="text-3xl sm:text-5xl lg:text-[48px] font-bold text-black tracking-[-0.025em] leading-[1.08]">
+                  {SITE_CONTENT.whoWeHelp.headingPrefix}
+                  <span className="font-serif-italic font-semibold text-[#672CFF]">
+                    {SITE_CONTENT.whoWeHelp.headingItalic}
+                  </span>
+                  {SITE_CONTENT.whoWeHelp.headingSuffix}
+                </h2>
+              </div>
+
+              <p className="text-sm sm:text-[15px] text-[#3D3D4A] leading-relaxed max-w-[440px]">
+                {SITE_CONTENT.whoWeHelp.paragraph}
+              </p>
+            </div>
+
+            <div className="mt-12">
+              <p className="text-xs sm:text-sm font-bold text-black mb-5">
+                {SITE_CONTENT.whoWeHelp.industriesLabel}
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                {SITE_CONTENT.whoWeHelp.industries.map((industry, index) => {
+                  const isPink = index % 2 === 1;
+                  return (
+                    <div
+                      key={industry.id}
+                      className="rounded-[20px] border border-[#EFEFF1] bg-white p-6 flex flex-col justify-between gap-5 hover:border-[#C2ABFF] transition-colors"
+                    >
+                      <div
+                        className={`w-11 h-11 rounded-xl flex items-center justify-center ${
+                          isPink
+                            ? 'bg-[#FFEEF2] text-[#FF2C5B]'
+                            : 'bg-[#EDE6FF] text-[#672CFF]'
+                        }`}
+                      >
+                        <IndustryIcon type={industry.iconType} />
+                      </div>
+                      <h3 className="text-sm sm:text-[15px] font-bold text-black leading-snug">
+                        {industry.name}
+                      </h3>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= 4. HOW WE HELP ================= */}
+        <section id="how-we-help" className="bg-[#EDE6FF] py-20 lg:py-28 scroll-mt-24">
+          <div className="max-w-[1140px] mx-auto px-5 sm:px-8">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12">
+              <div className="max-w-[600px]">
+                <p className="text-[11px] font-bold tracking-[0.15em] text-[#672CFF] uppercase mb-3">
+                  {SITE_CONTENT.howWeHelp.eyebrow}
+                </p>
+                <h2 className="text-3xl sm:text-5xl lg:text-[48px] font-bold text-black tracking-[-0.025em] leading-[1.1]">
+                  {SITE_CONTENT.howWeHelp.heading}
+                </h2>
+              </div>
+
+              <p className="text-sm sm:text-[15px] text-[#3D3D4A] leading-relaxed max-w-[420px]">
+                {SITE_CONTENT.howWeHelp.paragraph}
+              </p>
+            </div>
+
+            {/* Five Service Cards + Closing Custom Role Card in 3-Column Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+              {SITE_CONTENT.howWeHelp.services.map((service) => {
+                const iconBoxClasses =
+                  service.iconAccent === 'purple'
+                    ? 'bg-[#EDE6FF] text-[#672CFF]'
+                    : 'bg-[#FFEEF2] text-[#FF2C5B]';
+
+                return (
+                  <div
+                    key={service.id}
+                    className="rounded-[22px] p-7 bg-white text-black border border-[#C2ABFF]/40 flex flex-col justify-between min-h-[250px]"
+                  >
+                    <div>
+                      <div
+                        className={`w-11 h-11 rounded-xl flex items-center justify-center mb-6 ${iconBoxClasses}`}
+                      >
+                        <ServiceIcon type={service.iconType} />
+                      </div>
+
+                      <h3 className="text-lg font-bold text-black tracking-tight leading-snug">
+                        {service.title}
+                      </h3>
+
+                      <p className="text-xs sm:text-[13px] text-[#3D3D4A] leading-relaxed mt-2.5">
+                        {service.description}
+                      </p>
+                    </div>
+
+                    <div className="pt-6">
+                      <a
+                        href={BOOKING_HIRING_HREF}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#672CFF] hover:text-[#2F198C] transition-colors whitespace-nowrap"
+                      >
+                        <span>{SITE_CONTENT.howWeHelp.closingCtaLabel}</span>
+                        <ArrowRight className="w-3.5 h-3.5 stroke-[2.2]" />
+                      </a>
+                    </div>
+                  </div>
+                );
+              })}
+
+              {/* 6th Card — Dark Closing Card with Verbatim Closing Text */}
+              <div className="rounded-[22px] p-7 bg-black text-white flex flex-col justify-between min-h-[250px]">
+                <div>
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-6 bg-[#3D3D4A]/30 border border-[#3D3D4A] text-[#FF2C5B]">
+                    <Briefcase className="w-5 h-5 stroke-[1.8]" />
+                  </div>
+
+                  <p className="text-base sm:text-lg font-bold text-white leading-snug">
+                    {SITE_CONTENT.howWeHelp.closingText}
+                  </p>
+                </div>
+
+                <div className="pt-6">
+                  <a
+                    href={BOOKING_HIRING_HREF}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF2C5B] hover:text-[#FFABBD] transition-colors whitespace-nowrap"
+                  >
+                    <span>{SITE_CONTENT.howWeHelp.closingCtaLabel}</span>
+                    <ArrowRight className="w-3.5 h-3.5 stroke-[2.2]" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= 5. BETTER TALENT PROMISE ================= */}
+        <section className="bg-black text-white py-20 lg:py-28">
+          <div className="max-w-[1140px] mx-auto px-5 sm:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+              {/* Left Column */}
+              <div className="lg:col-span-5">
+                <p className="text-[11px] font-bold tracking-[0.15em] text-[#FF2C5B] uppercase mb-3">
+                  {SITE_CONTENT.betterTalentPromise.eyebrow}
+                </p>
+                <h2 className="text-3xl sm:text-5xl lg:text-[46px] font-bold text-white tracking-[-0.025em] leading-[1.1]">
+                  <span className="block">
+                    {SITE_CONTENT.betterTalentPromise.headingLine1}
+                  </span>
+                  <span className="block mt-1">
+                    <span className="font-serif-italic font-semibold text-[#FF2C5B]">
+                      {SITE_CONTENT.betterTalentPromise.headingLine2Italic}
+                    </span>
+                    {SITE_CONTENT.betterTalentPromise.headingLine2Suffix}
+                  </span>
+                </h2>
+
+                <p className="text-sm sm:text-[15px] text-[#8B8B94] leading-relaxed mt-5">
+                  {SITE_CONTENT.betterTalentPromise.paragraph}
+                </p>
+
+                <div className="mt-6 pt-6 border-t border-[#3D3D4A]/60 space-y-3">
+                  <p className="text-xs sm:text-sm font-semibold text-white">
+                    {SITE_CONTENT.betterTalentPromise.closingLine1}
+                  </p>
+                  <p className="text-xs sm:text-sm text-[#8B8B94] leading-relaxed">
+                    {SITE_CONTENT.betterTalentPromise.closingLine2}
+                  </p>
+                </div>
+
+                <div className="mt-8">
+                  <a
+                    href={BOOKING_HIRING_HREF}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center bg-[#FF2C5B] hover:bg-[#A61F3A] hover:text-white text-black text-xs sm:text-sm font-bold px-6 py-3.5 rounded-lg transition-colors whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  >
+                    {SITE_CONTENT.betterTalentPromise.ctaLabel}
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Column — Introduction + 2x2 Bordered Assessment Grid */}
+              <div className="lg:col-span-7">
+                <p className="text-xs sm:text-sm font-semibold text-[#C2ABFF] mb-4">
+                  {SITE_CONTENT.betterTalentPromise.introduction}
+                </p>
+
+                <div className="rounded-[24px] border border-[#3D3D4A]/60 bg-black grid grid-cols-1 sm:grid-cols-2 overflow-hidden">
+                  {SITE_CONTENT.betterTalentPromise.assessments.map((item, idx) => {
+                    const borderClasses =
+                      idx === 0
+                        ? 'border-b border-[#3D3D4A]/60 sm:border-r'
+                        : idx === 1
+                        ? 'border-b border-[#3D3D4A]/60'
+                        : idx === 2
+                        ? 'border-b sm:border-b-0 border-[#3D3D4A]/60 sm:border-r'
+                        : '';
+
+                    const iconColor =
+                      item.accent === 'purple' ? 'text-[#672CFF]' : 'text-[#FF2C5B]';
+
+                    return (
+                      <div key={item.id} className={`p-8 sm:p-9 ${borderClasses}`}>
+                        <div className={`${iconColor} mb-4`}>
+                          <AssessmentIcon type={item.iconType} />
+                        </div>
+                        <h3 className="text-base sm:text-lg font-bold text-white">
+                          {item.title}
+                        </h3>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= 6. LOVED BY FOUNDERS ================= */}
+        <section className="bg-[#EDE6FF] py-20 lg:py-28">
+          <div className="max-w-[1140px] mx-auto px-5 sm:px-8">
+            <p className="text-[11px] font-bold tracking-[0.15em] text-[#672CFF] uppercase mb-3">
+              {SITE_CONTENT.lovedByFounders.eyebrow}
+            </p>
+            <h2 className="text-3xl sm:text-5xl lg:text-[48px] font-bold text-black tracking-[-0.025em] leading-[1.1] max-w-[520px]">
+              {SITE_CONTENT.lovedByFounders.heading}
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              {SITE_CONTENT.lovedByFounders.testimonials.map((card) => (
+                <div
+                  key={card.id}
+                  className="bg-white rounded-[22px] p-7 sm:p-8 border border-[#C2ABFF]/40 flex flex-col justify-between"
+                >
+                  <div>
+                    <span
+                      aria-hidden="true"
+                      className={`block text-4xl font-bold leading-none mb-4 ${
+                        card.accent === 'purple' ? 'text-[#672CFF]' : 'text-[#FF2C5B]'
+                      }`}
+                    >
+                      &ldquo;
+                    </span>
+                    <p className="text-xs sm:text-[13px] text-[#3D3D4A] leading-relaxed">
+                      &ldquo;{card.quote}&rdquo;
+                    </p>
+                  </div>
+
+                  <div className="pt-6 mt-6 border-t border-[#EFEFF1]">
+                    <p className="text-xs sm:text-sm font-bold text-black">
+                      {card.name}
+                    </p>
+                    <p className="text-[11px] sm:text-xs text-[#3D3D4A] mt-0.5">
+                      {card.roleCompany}
+                    </p>
+                    <p className="text-[11px] text-[#8B8B94] mt-0.5">
+                      {card.location}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ================= 7. OUR MISSION ================= */}
+        <section
+          id="our-mission"
+          className="bg-white py-20 lg:py-28 border-b border-[#EFEFF1] scroll-mt-24"
+        >
+          <div className="max-w-[1140px] mx-auto px-5 sm:px-8">
+            <div className="max-w-[820px] mx-auto text-center">
+              <p className="text-[11px] font-bold tracking-[0.15em] text-[#FF2C5B] uppercase mb-4">
+                {SITE_CONTENT.ourMission.eyebrow}
+              </p>
+              <h2 className="text-3xl sm:text-5xl lg:text-[46px] font-bold text-black tracking-[-0.025em] leading-[1.15]">
+                <span className="block">{SITE_CONTENT.ourMission.headingLine1}</span>
+                <span className="block mt-1">
+                  <span className="font-serif-italic font-semibold text-[#672CFF]">
+                    {SITE_CONTENT.ourMission.headingLine2Italic}
+                  </span>
+                  {SITE_CONTENT.ourMission.headingLine2Suffix}
+                </span>
+              </h2>
+
+              <div className="mt-8 space-y-5 text-sm sm:text-base text-[#3D3D4A] leading-relaxed max-w-[720px] mx-auto">
+                <p>{SITE_CONTENT.ourMission.paragraph1}</p>
+                <p>{SITE_CONTENT.ourMission.paragraph2}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= 8. OUR PROCESS ================= */}
+        <section id="our-process" className="bg-white py-20 lg:py-28 scroll-mt-24">
+          <div className="max-w-[1140px] mx-auto px-5 sm:px-8">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+              <div>
+                <p className="text-[11px] font-bold tracking-[0.15em] text-[#672CFF] uppercase mb-3">
+                  {SITE_CONTENT.ourProcess.eyebrow}
+                </p>
+                <h2 className="text-3xl sm:text-5xl lg:text-[48px] font-bold text-black tracking-[-0.025em] leading-[1.1]">
+                  {SITE_CONTENT.ourProcess.heading}
+                </h2>
+              </div>
+
+              <a
+                href={BOOKING_HIRING_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 self-start sm:self-auto bg-[#672CFF] hover:bg-[#2F198C] text-white text-xs sm:text-sm font-semibold px-6 py-3.5 rounded-xl transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF2C5B]"
+              >
+                <span>{SITE_CONTENT.ourProcess.ctaLabel}</span>
+                <ArrowRight className="w-4 h-4 stroke-[2.2]" />
+              </a>
+            </div>
+
+            {/* Three Steps in a Row on Desktop, Stacked on Mobile */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
+              {SITE_CONTENT.ourProcess.steps.map((step) => {
+                const borderClass =
+                  step.accent === 'purple'
+                    ? 'border-[#672CFF]'
+                    : step.accent === 'pink'
+                    ? 'border-[#FF2C5B]'
+                    : 'border-black';
+
+                const numberColorClass =
+                  step.accent === 'purple'
+                    ? 'text-[#672CFF]'
+                    : step.accent === 'pink'
+                    ? 'text-[#FF2C5B]'
+                    : 'text-black';
+
+                return (
+                  <div key={step.number} className={`border-t-2 ${borderClass} pt-6`}>
+                    <p className={`text-xs font-bold ${numberColorClass} mb-2.5`}>
+                      {step.number}
+                    </p>
+                    <h3 className="text-lg sm:text-xl font-bold text-black tracking-tight">
+                      {step.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#3D3D4A] leading-relaxed mt-2">
+                      {step.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ================= 9. THE INVESTMENT ================= */}
+        <section className="bg-[#EDE6FF] py-20 lg:py-28">
+          <div className="max-w-[1140px] mx-auto px-5 sm:px-8">
+            <div className="max-w-[680px]">
+              <p className="text-[11px] font-bold tracking-[0.15em] text-[#672CFF] uppercase mb-3">
+                {SITE_CONTENT.theInvestment.eyebrow}
+              </p>
+              <h2 className="text-3xl sm:text-5xl lg:text-[48px] font-bold text-black tracking-[-0.025em] leading-[1.1]">
+                {SITE_CONTENT.theInvestment.headingPrefix}
+                <span className="font-serif-italic font-semibold text-[#672CFF]">
+                  {SITE_CONTENT.theInvestment.headingItalic}
+                </span>
+                {SITE_CONTENT.theInvestment.headingSuffix}
+              </h2>
+            </div>
+
+            {/* Side-by-Side Comparison Cards (Stacked on Mobile) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 mt-12 items-stretch">
+              {/* LEFT SIDE: Recruit Her */}
+              <div className="bg-[#672CFF] text-white rounded-[26px] p-8 sm:p-11 flex flex-col justify-between">
+                <div>
+                  <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                      {SITE_CONTENT.theInvestment.recruitHerSide.title}
+                    </h3>
+                    <span className="bg-[#FF2C5B] text-black text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full whitespace-nowrap">
+                      {SITE_CONTENT.theInvestment.recruitHerSide.priceBadge}
+                    </span>
+                  </div>
+
+                  <ul className="space-y-3.5 mt-6">
+                    {SITE_CONTENT.theInvestment.recruitHerSide.points.map((point) => (
+                      <li key={point} className="flex items-start gap-3 text-xs sm:text-sm text-white">
+                        <span className="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center shrink-0 mt-0.5">
+                          <Check className="w-3.5 h-3.5 text-[#FF2C5B] stroke-[3]" />
+                        </span>
+                        <span className="leading-relaxed">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* RIGHT SIDE: Traditional Local Hiring */}
+              <div className="bg-white text-black rounded-[26px] p-8 sm:p-11 border border-[#C2ABFF]/50 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-black tracking-tight mb-6">
+                    {SITE_CONTENT.theInvestment.traditionalSide.title}
+                  </h3>
+
+                  <ul className="space-y-4 mt-6">
+                    {SITE_CONTENT.theInvestment.traditionalSide.points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex items-start gap-3 text-xs sm:text-sm text-[#3D3D4A]"
+                      >
+                        <span className="w-5 h-5 rounded-full bg-[#EFEFF1] flex items-center justify-center shrink-0 mt-0.5">
+                          <X className="w-3.5 h-3.5 text-[#8B8B94] stroke-[2.5]" />
+                        </span>
+                        <span className="leading-relaxed">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Below the Comparison: Closing Difference & Action in Final CTA Styling */}
+            <div className="mt-10 bg-black text-white rounded-[32px] p-8 sm:p-12 lg:px-16 lg:py-14 overflow-hidden">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <div className="lg:col-span-8">
+                  <h3 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-white tracking-[-0.02em] leading-[1.2]">
+                    {SITE_CONTENT.theInvestment.closingHighlight}
+                  </h3>
+
+                  <div className="flex flex-wrap items-center gap-3.5 mt-8">
+                    <a
+                      href={BOOKING_HIRING_HREF}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 bg-[#672CFF] hover:bg-[#2F198C] text-white text-xs sm:text-sm font-semibold px-7 py-4 rounded-xl transition-colors whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF2C5B]"
+                    >
+                      <span>{SITE_CONTENT.theInvestment.ctaLabel}</span>
+                      <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                    </a>
+
+                    <a
+                      href={CONTACT_CONFIG.emailHref}
+                      className="inline-flex items-center justify-center border border-[#3D3D4A] hover:border-[#8B8B94] text-white text-xs sm:text-sm font-semibold px-7 py-4 rounded-xl transition-colors whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#672CFF]"
+                    >
+                      Email us
+                    </a>
+                  </div>
+                </div>
+
+                {/* Right Decorative Brand Graphic */}
+                <div className="lg:col-span-4 flex justify-center lg:justify-end">
+                  <BrandMark
+                    variant="decorative"
+                    className="w-32 sm:w-40 lg:w-44 h-auto select-none"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* ================= 10. FOOTER ================= */}
+      <footer className="bg-black text-white pt-16 pb-12 border-t border-[#3D3D4A]/40">
+        <div className="max-w-[1140px] mx-auto px-5 sm:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#3D3D4A]/40">
+            {/* Brand + Short Description */}
+            <div className="md:col-span-6 lg:col-span-7">
+              <a
+                href="#top"
+                className="inline-flex items-center gap-2.5 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#672CFF] rounded-md"
+              >
+                <BrandMark variant="logo" className="w-5 h-6 shrink-0" />
+                <span className="text-lg tracking-tight text-white">
+                  <span className="font-bold">Recruit</span>
+                  <span className="font-medium">Her</span>
+                </span>
+              </a>
+              <p className="text-xs sm:text-[13px] text-[#8B8B94] leading-relaxed mt-4 max-w-[360px]">
+                {SITE_CONTENT.footer.description}
+              </p>
+            </div>
+
+            {/* Company Navigation */}
+            <div className="md:col-span-3 lg:col-span-2">
+              <h3 className="text-[11px] font-bold tracking-[0.14em] text-white uppercase mb-4">
+                COMPANY
+              </h3>
+              <ul className="space-y-2.5 text-xs sm:text-[13px] text-[#8B8B94]">
+                {SITE_CONTENT.header.navItems.map((item) => (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      className="hover:text-white transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact Us */}
+            <div className="md:col-span-3 lg:col-span-3">
+              <h3 className="text-[11px] font-bold tracking-[0.14em] text-white uppercase mb-4">
+                CONTACT US
+              </h3>
+              <ul className="space-y-2.5 text-xs sm:text-[13px] text-[#8B8B94]">
+                <li>
+                  <a
+                    href={CONTACT_CONFIG.emailHref}
+                    className="hover:text-white transition-colors break-all"
+                  >
+                    {CONTACT_CONFIG.email}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={CONTACT_CONFIG.phoneHref}
+                    className="inline-flex items-center gap-2 hover:text-white transition-colors"
+                    title={CONTACT_CONFIG.internationalPhone}
+                  >
+                    <Phone className="w-3.5 h-3.5 text-[#FF2C5B] shrink-0" />
+                    <span>{CONTACT_CONFIG.displayPhone}</span>
+                  </a>
+                </li>
+                {CONTACT_CONFIG.linkedinUrl.trim() !== '' && (
+                  <li>
+                    <a
+                      href={CONTACT_CONFIG.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-white transition-colors"
+                    >
+                      LinkedIn
+                    </a>
+                  </li>
+                )}
+              </ul>
+            </div>
+          </div>
+
+          {/* Copyright Row */}
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#8B8B94]">
+            <p>{SITE_CONTENT.footer.getCopyright()}</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}

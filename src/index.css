@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+:root {
+  --brand-primary-pink: #FF2C5B;
+  --brand-primary-purple: #672CFF;
+  --brand-black: #000000;
+  --brand-dark-pink: #A61F3A;
+  --brand-dark-purple: #2F198C;
+  --brand-dark-gray: #3D3D4A;
+  --brand-light-pink: #FFABBD;
+  --brand-light-purple: #C2ABFF;
+  --brand-gray: #8B8B94;
+  --brand-pale-pink: #FFEEF2;
+  --brand-pale-purple: #EDE6FF;
+  --brand-pale-gray: #EFEFF1;
+  --brand-white: #FFFFFF;
+}
+
+@layer base {
+  body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--brand-black);
+    background-color: var(--brand-black);
+    overflow-x: hidden;
+  }
+}
+
+.font-serif-italic {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+}

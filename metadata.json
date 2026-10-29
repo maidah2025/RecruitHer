@@ -1,0 +1,6 @@
+{
+  "name": "RecruitHer — Remote Staff Augmentation",
+  "description": "Build your remote team with pre-vetted, talented women in legal support, customer support, and administration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
