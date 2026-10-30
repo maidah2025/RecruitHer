@@ -786,42 +786,42 @@ export default function App() {
         {/* ================= 8. OUR PROCESS (HOW IT WORKS) ================= */}
         <section
           id="our-process"
-          className="relative overflow-hidden bg-[#FDF9FC] py-20 lg:py-28 scroll-mt-24 border-b border-[#F3E8F8]"
+          className="relative overflow-hidden bg-[#FDF9FC] py-8 sm:py-12 lg:py-16 scroll-mt-20 border-b border-[#F3E8F8]"
         >
           {/* Subtle Pastel Corner Shapes matching reference */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -top-24 -left-24 w-[320px] h-[320px] rounded-full bg-[#FFEAF2]/80"
+            className="pointer-events-none absolute -top-14 -left-14 sm:-top-20 sm:-left-20 w-[140px] h-[140px] sm:w-[240px] sm:h-[240px] rounded-full bg-[#FFEAF2]/80"
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -top-20 -right-24 w-[280px] h-[280px] rounded-full bg-[#EDE3FF]/75"
+            className="pointer-events-none absolute -top-12 -right-14 sm:-top-16 sm:-right-20 w-[130px] h-[130px] sm:w-[220px] sm:h-[220px] rounded-full bg-[#EDE3FF]/75"
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute top-24 -right-28 w-[240px] h-[240px] rounded-full bg-[#E1D2FF]/65"
+            className="pointer-events-none absolute top-10 -right-16 sm:top-16 sm:-right-24 w-[110px] h-[110px] sm:w-[190px] sm:h-[190px] rounded-full bg-[#E1D2FF]/65"
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -bottom-28 -left-20 w-[290px] h-[290px] rounded-full bg-[#EAE0FF]/75"
+            className="pointer-events-none absolute -bottom-16 -left-12 sm:-bottom-24 sm:-left-16 w-[130px] h-[130px] sm:w-[220px] sm:h-[220px] rounded-full bg-[#EAE0FF]/75"
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -bottom-28 -right-20 w-[300px] h-[300px] rounded-full bg-[#FFE8F0]/80"
+            className="pointer-events-none absolute -bottom-16 -right-12 sm:-bottom-24 sm:-right-16 w-[140px] h-[140px] sm:w-[230px] sm:h-[230px] rounded-full bg-[#FFE8F0]/80"
           />
 
-          <div className="relative z-10 max-w-[1140px] mx-auto px-5 sm:px-8">
-            {/* Top Header Row: Left Eyebrow + Heading | Right Subtext + Pink Underline */}
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12">
-              <div>
-                <div className="inline-flex items-center justify-center rounded-xl border border-[#F99BBC] bg-white/85 px-6 py-2.5 shadow-[0_2px_10px_rgba(255,31,90,0.06)] mb-5">
-                  <span className="text-xs sm:text-[13px] font-bold tracking-[0.04em] text-[#0E0B16] uppercase">
+          <div className="relative z-10 max-w-[1040px] mx-auto px-3.5 sm:px-8">
+            {/* Top Header Row: Always Side-by-Side like Screenshot */}
+            <div className="grid grid-cols-12 items-end gap-2 sm:gap-6">
+              <div className="col-span-7 sm:col-span-7">
+                <div className="inline-flex items-center justify-center rounded-lg sm:rounded-xl border border-[#F99BBC] bg-white/90 px-3 py-1 sm:px-5 sm:py-2 shadow-[0_2px_8px_rgba(255,31,90,0.06)] mb-2 sm:mb-3.5">
+                  <span className="text-[8.5px] sm:text-[11px] lg:text-xs font-bold tracking-[0.04em] text-[#0E0B16] uppercase">
                     {SITE_CONTENT.ourProcess.eyebrow}
                   </span>
                 </div>
 
-                <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-[-0.03em] leading-[1.08]">
-                  <span className="block">
+                <h2 className="text-[19px] sm:text-3xl lg:text-[42px] font-extrabold tracking-[-0.03em] leading-[1.08]">
+                  <span className="block whitespace-nowrap">
                     <span className="text-[#0A0614]">
                       {SITE_CONTENT.ourProcess.headingLine1Black}
                     </span>
@@ -829,72 +829,72 @@ export default function App() {
                       {SITE_CONTENT.ourProcess.headingLine1Pink}
                     </span>
                   </span>
-                  <span className="block text-[#6528FF] mt-1">
+                  <span className="block text-[#6528FF] mt-0.5 whitespace-nowrap">
                     {SITE_CONTENT.ourProcess.headingLine2Purple}
                   </span>
                 </h2>
               </div>
 
-              <div className="lg:pb-3 lg:max-w-[430px]">
-                <p className="text-[15px] sm:text-[17px] font-normal text-[#3B354A] leading-snug">
+              <div className="col-span-5 sm:col-span-5 pb-0.5 sm:pb-2">
+                <p className="text-[9px] sm:text-[13px] lg:text-[15px] font-normal text-[#3B354A] leading-snug">
                   {SITE_CONTENT.ourProcess.rightSubtitleLine1}
                 </p>
-                <div className="mt-2 inline-block">
-                  <p className="text-[15px] sm:text-[17px] font-medium text-[#FF1F5A] leading-snug">
+                <div className="mt-1 sm:mt-1.5 inline-block w-full">
+                  <p className="text-[9px] sm:text-[13px] lg:text-[15px] font-medium text-[#FF1F5A] leading-snug">
                     {SITE_CONTENT.ourProcess.rightSubtitleLine2}
                   </p>
-                  <div className="h-[2.5px] w-[72%] bg-[#FF1F5A] mt-2 rounded-full" />
+                  <div className="h-[1.5px] sm:h-[2px] w-[72%] bg-[#FF1F5A] mt-1 sm:mt-1.5 rounded-full" />
                 </div>
               </div>
             </div>
 
-            {/* 3-Step Flow with Dashed Connectors & Center Dots */}
-            <div className="relative mt-14 sm:mt-20">
-              {/* Desktop Horizontal Dashed Connectors + Center Dots */}
+            {/* 3-Step Flow: Always 3 Columns Side-by-Side with Horizontal Dashed Connectors */}
+            <div className="relative mt-6 sm:mt-11 lg:mt-12">
+              {/* Horizontal Dashed Connectors + Center Dots (Visible on ALL screens) */}
               <div
                 aria-hidden="true"
-                className="hidden md:block pointer-events-none absolute top-[58px] left-[16.666%] right-[16.666%] z-0"
+                className="pointer-events-none absolute top-[28px] sm:top-[40px] lg:top-[46px] left-[16.666%] right-[16.666%] z-0"
               >
                 <div className="grid grid-cols-2 items-center w-full">
                   {/* Connector 1 -> 2 (Pink Dashed + Pink Dot) */}
-                  <div className="relative flex items-center justify-center px-14">
-                    <div className="w-full border-t-2 border-dashed border-[#FF3B72]/60" />
-                    <span className="absolute w-3.5 h-3.5 rounded-full bg-[#FF1F5A] ring-4 ring-[#FDF9FC]" />
+                  <div className="relative flex items-center justify-center px-6 sm:px-11 lg:px-14">
+                    <div className="w-full border-t-[1.5px] sm:border-t-2 border-dashed border-[#FF3B72]/65" />
+                    <span className="absolute w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-[#FF1F5A] ring-2 sm:ring-4 ring-[#FDF9FC]" />
                   </div>
 
                   {/* Connector 2 -> 3 (Purple Dashed + Purple Dot) */}
-                  <div className="relative flex items-center justify-center px-14">
-                    <div className="w-full border-t-2 border-dashed border-[#6528FF]/60" />
-                    <span className="absolute w-3.5 h-3.5 rounded-full bg-[#6528FF] ring-4 ring-[#FDF9FC]" />
+                  <div className="relative flex items-center justify-center px-6 sm:px-11 lg:px-14">
+                    <div className="w-full border-t-[1.5px] sm:border-t-2 border-dashed border-[#6528FF]/65" />
+                    <span className="absolute w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-[#6528FF] ring-2 sm:ring-4 ring-[#FDF9FC]" />
                   </div>
                 </div>
               </div>
 
-              {/* 3 Steps Grid */}
-              <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+              {/* 3 Steps Grid (Always 3 columns side-by-side) */}
+              <div className="relative z-10 grid grid-cols-3 gap-2 sm:gap-5 lg:gap-8">
                 {SITE_CONTENT.ourProcess.steps.map((step, idx) => {
                   const isPurple = step.accent === 'purple';
 
                   const cardBoxClasses = isPurple
-                    ? 'bg-gradient-to-b from-[#F5F0FF] to-[#EBE0FF] border-[#D8C4FF] shadow-[0_18px_38px_rgba(101,40,255,0.14)]'
-                    : 'bg-gradient-to-b from-[#FFF5F8] to-[#FFE8F0] border-[#FFD2E1] shadow-[0_18px_38px_rgba(255,31,90,0.13)]';
+                    ? 'bg-gradient-to-b from-[#F5F0FF] to-[#EBE0FF] border-[#D8C4FF] shadow-[0_10px_24px_rgba(101,40,255,0.13)]'
+                    : 'bg-gradient-to-b from-[#FFF5F8] to-[#FFE8F0] border-[#FFD2E1] shadow-[0_10px_24px_rgba(255,31,90,0.12)]';
 
                   const badgeClasses = isPurple
-                    ? 'bg-[#6528FF] shadow-[0_6px_14px_rgba(101,40,255,0.35)]'
-                    : 'bg-[#FF1F5A] shadow-[0_6px_14px_rgba(255,31,90,0.35)]';
+                    ? 'bg-[#6528FF] shadow-[0_4px_10px_rgba(101,40,255,0.35)]'
+                    : 'bg-[#FF1F5A] shadow-[0_4px_10px_rgba(255,31,90,0.35)]';
 
                   return (
                     <div key={step.number} className="flex flex-col items-center text-center">
                       {/* Rounded Square Icon Box + Bottom Number Pill */}
                       <div className="relative">
                         <div
-                          className={`w-[116px] h-[116px] rounded-[26px] border flex items-center justify-center ${cardBoxClasses}`}
+                          className={`w-[56px] h-[56px] sm:w-[80px] sm:h-[80px] lg:w-[92px] lg:h-[92px] rounded-[15px] sm:rounded-[20px] lg:rounded-[22px] border flex items-center justify-center ${cardBoxClasses}`}
                         >
                           {idx === 0 && (
                             /* Step 01: Phone with Signal Waves (Pink-Red) */
                             <svg
                               viewBox="0 0 64 64"
-                              className="w-14 h-14"
+                              className="w-7 h-7 sm:w-10 sm:h-10 lg:w-11 lg:h-11"
                               fill="none"
                               aria-hidden="true"
                             >
@@ -921,32 +921,25 @@ export default function App() {
                             /* Step 02: 3 Vetted Specialists + Checkmark Badge (Purple) */
                             <svg
                               viewBox="0 0 64 64"
-                              className="w-14 h-14"
+                              className="w-7 h-7 sm:w-10 sm:h-10 lg:w-11 lg:h-11"
                               fill="none"
                               aria-hidden="true"
                             >
-                              {/* Center Person Head */}
                               <circle cx="32" cy="18.5" r="6.5" fill="#6528FF" />
-                              {/* Left Person Head */}
                               <circle cx="19" cy="22.5" r="5" fill="#6528FF" />
-                              {/* Right Person Head */}
                               <circle cx="45" cy="22.5" r="5" fill="#6528FF" />
-                              {/* Left Shoulder */}
                               <path
                                 d="M10.5 38.5C10.5 33.8 14.2 30 18.8 30C20.5 30 22.1 30.5 23.4 31.4C21.4 33.4 20.1 36.1 19.9 39.2H11.5C10.9 39.2 10.5 38.9 10.5 38.5Z"
                                 fill="#6528FF"
                               />
-                              {/* Right Shoulder */}
                               <path
                                 d="M53.5 38.5C53.5 33.8 49.8 30 45.2 30C43.5 30 41.9 30.5 40.6 31.4C42.6 33.4 43.9 36.1 44.1 39.2H52.5C53.1 39.2 53.5 38.9 53.5 38.5Z"
                                 fill="#6528FF"
                               />
-                              {/* Center Person Shoulders */}
                               <path
                                 d="M22 38.5C22 32.7 26.5 28 32 28C37.5 28 42 32.7 42 38.5V40.5H22V38.5Z"
                                 fill="#6528FF"
                               />
-                              {/* Checkmark Circle Badge */}
                               <circle
                                 cx="32"
                                 cy="44.5"
@@ -969,11 +962,10 @@ export default function App() {
                             /* Step 03: Magnifying Glass with Person Inside (Pink-Red) */
                             <svg
                               viewBox="0 0 64 64"
-                              className="w-14 h-14"
+                              className="w-7 h-7 sm:w-10 sm:h-10 lg:w-11 lg:h-11"
                               fill="none"
                               aria-hidden="true"
                             >
-                              {/* Outer Lens Ring */}
                               <circle
                                 cx="29"
                                 cy="28"
@@ -981,14 +973,11 @@ export default function App() {
                                 stroke="#FF1F5A"
                                 strokeWidth="4.5"
                               />
-                              {/* Person Head inside lens */}
                               <circle cx="29" cy="24" r="4.2" fill="#FF1F5A" />
-                              {/* Person Shoulders inside lens */}
                               <path
                                 d="M21.5 35.2C22.4 31.8 25.4 29.6 29 29.6C32.6 29.6 35.6 31.8 36.5 35.2C34.4 37.1 31.8 38.2 29 38.2C26.2 38.2 23.6 37.1 21.5 35.2Z"
                                 fill="#FF1F5A"
                               />
-                              {/* Magnifying Glass Handle */}
                               <path
                                 d="M40.2 39.2L49.5 48.5"
                                 stroke="#FF1F5A"
@@ -1001,69 +990,45 @@ export default function App() {
 
                         {/* Overlapping Number Badge (01, 02, 03) */}
                         <span
-                          className={`absolute -bottom-3.5 left-1/2 -translate-x-1/2 w-8 h-8 rounded-lg text-white text-xs font-bold flex items-center justify-center ${badgeClasses}`}
+                          className={`absolute -bottom-2 sm:-bottom-2.5 left-1/2 -translate-x-1/2 w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 rounded-md text-white text-[9px] sm:text-[10px] lg:text-[11px] font-bold flex items-center justify-center ${badgeClasses}`}
                         >
                           {step.number}
                         </span>
                       </div>
 
                       {/* Step Title */}
-                      <h3 className="text-xl sm:text-[22px] font-extrabold text-[#0A0614] tracking-tight mt-8">
+                      <h3 className="text-[11px] sm:text-[15px] lg:text-[18px] font-extrabold text-[#0A0614] tracking-tight mt-4 sm:mt-5 leading-tight">
                         {step.title}
                       </h3>
 
                       {/* Step Description */}
-                      <p className="text-sm sm:text-[15px] text-[#4A4458] leading-relaxed mt-2.5 max-w-[280px]">
+                      <p className="text-[8.5px] sm:text-xs lg:text-[13.5px] text-[#4A4458] leading-snug mt-1 sm:mt-1.5 max-w-[230px]">
                         {step.description}
                       </p>
-
-                      {/* Mobile Dashed Connector Between Steps */}
-                      {idx < 2 && (
-                        <div
-                          aria-hidden="true"
-                          className="md:hidden flex flex-col items-center mt-6 -mb-4"
-                        >
-                          <div
-                            className={`h-5 border-l-2 border-dashed ${
-                              idx === 0 ? 'border-[#FF3B72]/65' : 'border-[#6528FF]/65'
-                            }`}
-                          />
-                          <span
-                            className={`w-2.5 h-2.5 rounded-full my-1 ${
-                              idx === 0 ? 'bg-[#FF1F5A]' : 'bg-[#6528FF]'
-                            }`}
-                          />
-                          <div
-                            className={`h-5 border-l-2 border-dashed ${
-                              idx === 0 ? 'border-[#FF3B72]/65' : 'border-[#6528FF]/65'
-                            }`}
-                          />
-                        </div>
-                      )}
                     </div>
                   );
                 })}
               </div>
             </div>
 
-            {/* Bottom CTA Buttons: "Build Your Team in 48 Hours ->" & "Who We Help ->" */}
-            <div className="mt-14 sm:mt-16 flex flex-wrap items-center justify-center gap-4">
+            {/* Bottom CTA Buttons: Side-by-Side on All Screens */}
+            <div className="mt-6 sm:mt-10 lg:mt-12 flex flex-row items-center justify-center gap-2.5 sm:gap-4">
               <a
                 href={BOOKING_HIRING_HREF}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#5B21FF] to-[#7C3AED] hover:from-[#4C16E0] hover:to-[#6626D9] text-white text-sm sm:text-[15px] font-bold px-7 py-4 rounded-xl shadow-[0_10px_26px_rgba(101,40,255,0.32)] transition-all whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF1F5A]"
+                className="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-r from-[#5B21FF] to-[#7C3AED] hover:from-[#4C16E0] hover:to-[#6626D9] text-white text-[10px] sm:text-xs lg:text-[14px] font-bold px-3.5 py-2.5 sm:px-6 sm:py-3.5 rounded-lg sm:rounded-xl shadow-[0_8px_20px_rgba(101,40,255,0.28)] transition-all whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF1F5A]"
               >
                 <span>{SITE_CONTENT.ourProcess.primaryCtaLabel}</span>
-                <ArrowRight className="w-4 h-4 stroke-[2.4]" />
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 stroke-[2.4]" />
               </a>
 
               <a
                 href="#who-we-help"
-                className="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-[#FFF5F8] text-[#FF1F5A] border-[1.5px] border-[#FF1F5A] text-sm sm:text-[15px] font-bold px-7 py-4 rounded-xl shadow-[0_6px_18px_rgba(255,31,90,0.08)] transition-all whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6528FF]"
+                className="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-white hover:bg-[#FFF5F8] text-[#FF1F5A] border sm:border-[1.5px] border-[#FF1F5A] text-[10px] sm:text-xs lg:text-[14px] font-bold px-3.5 py-2.5 sm:px-6 sm:py-3.5 rounded-lg sm:rounded-xl shadow-[0_4px_14px_rgba(255,31,90,0.08)] transition-all whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6528FF]"
               >
                 <span>{SITE_CONTENT.ourProcess.secondaryCtaLabel}</span>
-                <ArrowRight className="w-4 h-4 stroke-[2.4]" />
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 stroke-[2.4]" />
               </a>
             </div>
           </div>
