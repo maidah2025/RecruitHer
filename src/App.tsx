@@ -219,9 +219,7 @@ export default function App() {
                     <span className="block">{SITE_CONTENT.hero.headlineLine1}</span>
                     <span className="block mt-1">
                       <span>{SITE_CONTENT.hero.headlineLine2Prefix}</span>
-                      <span className="font-serif-italic font-semibold text-[#FF2C5B]">
-                        {SITE_CONTENT.hero.headlineLine2Italic}
-                      </span>
+                      <span>{SITE_CONTENT.hero.headlineLine2Italic}</span>
                     </span>
                   </h1>
 
@@ -539,9 +537,7 @@ export default function App() {
                     {SITE_CONTENT.betterTalentPromise.headingLine1}
                   </span>
                   <span className="block mt-1">
-                    <span className="font-serif-italic font-semibold text-[#FF2C5B]">
-                      {SITE_CONTENT.betterTalentPromise.headingLine2Italic}
-                    </span>
+                    <span>{SITE_CONTENT.betterTalentPromise.headingLine2Italic}</span>
                     {SITE_CONTENT.betterTalentPromise.headingLine2Suffix}
                   </span>
                 </h2>
