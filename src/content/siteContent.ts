@@ -31,7 +31,7 @@ export const CONTACT_CONFIG = {
   /**
    * Verified official company LinkedIn URL for Recruit Her Global LLC.
    */
-  linkedinUrl: 'https://www.linkedin.com/company/recruitherglobal',
+  linkedinUrl: 'https://www.linkedin.com/company/recruitherglobal/',
 };
 
 export const BOOKING_HIRING_HREF = CONTACT_CONFIG.calendlyUrl;
