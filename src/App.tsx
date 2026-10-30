@@ -480,7 +480,7 @@ export default function App() {
                         {/* Clean left-to-right veil so text is 100% readable while right-side artwork stays sharp and unblurred */}
                         <div
                           aria-hidden="true"
-                          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/80 to-white/15 z-0"
+                          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white/95 via-white/50 to-transparent z-0"
                         />
                       </>
                     )}
