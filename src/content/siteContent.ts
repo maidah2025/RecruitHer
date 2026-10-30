@@ -336,8 +336,8 @@ export const SITE_CONTENT = {
   ourProcess: {
     eyebrow: 'HOW IT WORKS',
     headingLine1Black: 'Your Next ',
-    headingLine1Pink: 'Hire. 48',
-    headingLine2Purple: 'Hours Away.',
+    headingLine1Pink: 'Great Hire',
+    headingLine2Purple: 'Starts Here.',
     rightSubtitleLine1: 'Three steps. No upfront cost. No guesswork.',
     rightSubtitleLine2: 'Fast. Risk free. Built for agencies.',
     steps: [
@@ -360,8 +360,8 @@ export const SITE_CONTENT = {
         accent: 'pink' as const,
       },
     ],
-    primaryCtaLabel: 'Build Your Team in 48 Hours',
-    secondaryCtaLabel: 'Who We Help',
+    primaryCtaLabel: 'Start Hiring Today',
+    secondaryCtaLabel: 'Explore Our Services',
   },
   theInvestment: {
     eyebrow: 'THE INVESTMENT',

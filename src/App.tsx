@@ -941,7 +941,7 @@ export default function App() {
               </a>
 
               <a
-                href="#who-we-help"
+                href="#how-we-help"
                 className="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-white hover:bg-[#FFF5F8] text-[#FF1F5A] border sm:border-[1.5px] border-[#FF1F5A] text-[10px] sm:text-xs lg:text-[14px] font-bold px-3.5 py-2.5 sm:px-6 sm:py-3.5 rounded-lg sm:rounded-xl shadow-[0_4px_14px_rgba(255,31,90,0.08)] transition-all whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6528FF]"
               >
                 <span>{SITE_CONTENT.ourProcess.secondaryCtaLabel}</span>
