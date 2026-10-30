@@ -47,6 +47,7 @@ export interface IndustryItem {
   id: string;
   name: string;
   iconType: 'scale' | 'calculator' | 'building' | 'briefcase' | 'layers';
+  bgImage?: string;
 }
 
 export interface ServiceCardItem {
@@ -167,26 +168,31 @@ export const SITE_CONTENT = {
         id: 'law-firms',
         name: 'Law firms',
         iconType: 'scale',
+        bgImage: '/assets/industries/law-firms.webp',
       },
       {
         id: 'accounting-finance',
         name: 'Accounting and finance firms',
         iconType: 'calculator',
+        bgImage: '/assets/industries/accounting-finance.webp',
       },
       {
         id: 'real-estate',
         name: 'Real estate businesses',
         iconType: 'building',
+        bgImage: '/assets/industries/real-estate.webp',
       },
       {
         id: 'consulting-firms',
         name: 'Consulting firms',
         iconType: 'briefcase',
+        bgImage: '/assets/industries/consulting-firms.webp',
       },
       {
         id: 'agencies-service',
         name: 'Agencies and other service-based businesses',
         iconType: 'layers',
+        bgImage: '/assets/industries/agencies-service.webp',
       },
     ] as IndustryItem[],
   },

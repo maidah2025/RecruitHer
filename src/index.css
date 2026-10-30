@@ -29,3 +29,182 @@
   font-family: 'Lora', Georgia, serif;
   font-style: italic;
 }
+
+@keyframes heroAuroraWaveA {
+  0% {
+    transform: translate3d(-18%, -14%, 0) rotate(0deg) scale(1);
+    background: radial-gradient(circle, rgba(103, 44, 255, 0.58) 0%, rgba(47, 25, 140, 0.28) 48%, transparent 72%);
+  }
+  50% {
+    transform: translate3d(24%, 18%, 0) rotate(25deg) scale(1.25);
+    background: radial-gradient(circle, rgba(255, 44, 91, 0.52) 0%, rgba(166, 31, 58, 0.24) 48%, transparent 72%);
+  }
+  100% {
+    transform: translate3d(-18%, -14%, 0) rotate(0deg) scale(1);
+    background: radial-gradient(circle, rgba(103, 44, 255, 0.58) 0%, rgba(47, 25, 140, 0.28) 48%, transparent 72%);
+  }
+}
+
+@keyframes heroAuroraWaveB {
+  0% {
+    transform: translate3d(20%, 16%, 0) rotate(0deg) scale(1.1);
+    background: radial-gradient(circle, rgba(255, 44, 91, 0.5) 0%, rgba(166, 31, 58, 0.22) 48%, transparent 72%);
+  }
+  50% {
+    transform: translate3d(-22%, -15%, 0) rotate(-25deg) scale(0.92);
+    background: radial-gradient(circle, rgba(103, 44, 255, 0.56) 0%, rgba(47, 25, 140, 0.26) 48%, transparent 72%);
+  }
+  100% {
+    transform: translate3d(20%, 16%, 0) rotate(0deg) scale(1.1);
+    background: radial-gradient(circle, rgba(255, 44, 91, 0.5) 0%, rgba(166, 31, 58, 0.22) 48%, transparent 72%);
+  }
+}
+
+@keyframes heroLightSweep {
+  0% {
+    transform: translateX(-120%) skewX(-24deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.75;
+  }
+  50% {
+    transform: translateX(140%) skewX(-24deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(140%) skewX(-24deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heroGridFlow {
+  0% {
+    background-position: 0px 0px, 0px 0px;
+  }
+  100% {
+    background-position: 40px 40px, 40px 40px;
+  }
+}
+
+.animate-hero-aurora-a {
+  animation: heroAuroraWaveA 6.5s ease-in-out infinite;
+}
+
+.animate-hero-aurora-b {
+  animation: heroAuroraWaveB 6.5s ease-in-out infinite;
+}
+
+.animate-hero-sweep {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(103, 44, 255, 0.22) 35%,
+    rgba(255, 44, 91, 0.28) 65%,
+    transparent 100%
+  );
+  animation: heroLightSweep 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(103, 44, 255, 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 44, 91, 0.18) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: heroGridFlow 4s linear infinite;
+}
+
+/* Guaranteed Result Ring Animation (matches 4s cycle in reference video) */
+@keyframes guaranteedRingSpin {
+  0%, 18% {
+    transform: rotate(0deg);
+  }
+  42%, 100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes guaranteedRingTrail1 {
+  0%, 16% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  26% {
+    opacity: 0.55;
+  }
+  42%, 100% {
+    transform: rotate(338deg);
+    opacity: 0;
+  }
+}
+
+@keyframes guaranteedRingTrail2 {
+  0%, 16% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  28% {
+    opacity: 0.35;
+  }
+  43%, 100% {
+    transform: rotate(316deg);
+    opacity: 0;
+  }
+}
+
+@keyframes guaranteedTopDot {
+  0%, 52% {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+  62%, 78% {
+    transform: translateY(-26px) scale(0.2);
+    opacity: 0;
+  }
+  88% {
+    transform: translateY(-18px) scale(1);
+    opacity: 1;
+  }
+  96%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes guaranteedTopDotTrail {
+  0%, 80% {
+    opacity: 0;
+    transform: translateY(-22px) scaleY(0.4);
+  }
+  90% {
+    opacity: 0.95;
+    transform: translateY(-8px) scaleY(1.15);
+  }
+  98%, 100% {
+    opacity: 0;
+    transform: translateY(0px) scaleY(0.5);
+  }
+}
+
+.animate-guaranteed-ring {
+  animation: guaranteedRingSpin 4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.animate-guaranteed-trail-1 {
+  animation: guaranteedRingTrail1 4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.animate-guaranteed-trail-2 {
+  animation: guaranteedRingTrail2 4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.animate-guaranteed-top-dot {
+  animation: guaranteedTopDot 4s ease-in-out infinite;
+}
+
+.animate-guaranteed-top-trail {
+  animation: guaranteedTopDotTrail 4s ease-in-out infinite;
+}
+
+
+

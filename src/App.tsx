@@ -183,71 +183,92 @@ export default function App() {
           <div className="max-w-[1240px] mx-auto px-5 sm:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
               {/* Left Column */}
-              <div className="lg:col-span-6 xl:col-span-6">
-                {/* Subheading Badge */}
-                <div className="inline-flex items-center gap-3 rounded-full border border-[#3D3D4A] bg-black p-1.5 pr-5 mb-8">
-                  <span className="bg-[#FF2C5B] text-black text-xs font-bold px-3.5 py-1 rounded-full tracking-tight">
-                    Remote
-                  </span>
-                  <span className="text-xs sm:text-[13px] font-medium text-white/90">
-                    {SITE_CONTENT.hero.subheading}
-                  </span>
+              <div className="lg:col-span-6 xl:col-span-6 relative isolate">
+                {/* Animated Background strictly behind the Hero text block (black base preserved, no dots) */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -inset-4 sm:-inset-6 z-0 overflow-hidden rounded-3xl bg-black"
+                >
+                  {/* Continuously flowing brand grid */}
+                  <div className="absolute inset-0 animate-hero-grid [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_98%)]" />
+
+                  {/* Alternating Purple <-> Pink Aurora Wave A */}
+                  <div className="absolute -top-16 -left-16 w-80 h-80 sm:w-[420px] sm:h-[420px] rounded-full blur-[54px] animate-hero-aurora-a" />
+
+                  {/* Alternating Pink <-> Purple Aurora Wave B */}
+                  <div className="absolute -bottom-16 -right-12 w-80 h-80 sm:w-[420px] sm:h-[420px] rounded-full blur-[54px] animate-hero-aurora-b" />
+
+                  {/* Diagonal sweeping light shimmer */}
+                  <div className="absolute inset-y-0 -left-1/4 w-2/3 blur-2xl animate-hero-sweep" />
                 </div>
 
-                {/* Headline */}
-                <h1 className="text-[42px] sm:text-[58px] lg:text-[64px] xl:text-[70px] font-bold tracking-[-0.03em] leading-[1.04] text-white">
-                  <span className="block">{SITE_CONTENT.hero.headlineLine1}</span>
-                  <span className="block mt-1">
-                    <span>{SITE_CONTENT.hero.headlineLine2Prefix}</span>
-                    <span className="font-serif-italic font-semibold text-[#FF2C5B]">
-                      {SITE_CONTENT.hero.headlineLine2Italic}
+                {/* Foreground Content (unchanged) */}
+                <div className="relative z-10">
+                  {/* Subheading Badge */}
+                  <div className="inline-flex items-center gap-3 rounded-full border border-[#3D3D4A] bg-black p-1.5 pr-5 mb-8">
+                    <span className="bg-[#FF2C5B] text-black text-xs font-bold px-3.5 py-1 rounded-full tracking-tight">
+                      Remote
                     </span>
-                  </span>
-                </h1>
+                    <span className="text-xs sm:text-[13px] font-medium text-white/90">
+                      {SITE_CONTENT.hero.subheading}
+                    </span>
+                  </div>
 
-                {/* Prominent Subheading */}
-                <p className="text-lg sm:text-xl lg:text-[22px] font-semibold text-white tracking-tight mt-5">
-                  {SITE_CONTENT.hero.subheading}
-                </p>
+                  {/* Headline */}
+                  <h1 className="text-[42px] sm:text-[58px] lg:text-[64px] xl:text-[70px] font-bold tracking-[-0.03em] leading-[1.04] text-white">
+                    <span className="block">{SITE_CONTENT.hero.headlineLine1}</span>
+                    <span className="block mt-1">
+                      <span>{SITE_CONTENT.hero.headlineLine2Prefix}</span>
+                      <span className="font-serif-italic font-semibold text-[#FF2C5B]">
+                        {SITE_CONTENT.hero.headlineLine2Italic}
+                      </span>
+                    </span>
+                  </h1>
 
-                {/* Description */}
-                <p className="text-base sm:text-lg lg:text-[18px] text-[#8B8B94] leading-[1.6] mt-4 max-w-[510px] font-normal">
-                  {SITE_CONTENT.hero.description}
-                </p>
+                  {/* Prominent Subheading */}
+                  <p className="text-lg sm:text-xl lg:text-[22px] font-semibold text-white tracking-tight mt-5">
+                    {SITE_CONTENT.hero.subheading}
+                  </p>
 
-                {/* Primary & Secondary CTA Buttons */}
-                <div className="flex flex-wrap items-center gap-4 mt-9">
-                  <a
-                    href={BOOKING_HIRING_HREF}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2.5 bg-[#672CFF] hover:bg-[#2F198C] text-white text-sm sm:text-[15px] font-semibold px-7 py-4 rounded-xl transition-colors whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF2C5B]"
-                  >
-                    <span>{SITE_CONTENT.hero.primaryCta}</span>
-                    <ArrowRight className="w-4 h-4 stroke-[2.5]" />
-                  </a>
+                  {/* Description */}
+                  <p className="text-base sm:text-lg lg:text-[18px] text-[#8B8B94] leading-[1.6] mt-4 max-w-[510px] font-normal">
+                    {SITE_CONTENT.hero.description}
+                  </p>
 
-                  <a
-                    href={CONTACT_CONFIG.emailHref}
-                    className="inline-flex items-center justify-center border border-[#3D3D4A] hover:border-[#8B8B94] bg-transparent text-white text-sm sm:text-[15px] font-semibold px-9 py-4 rounded-xl transition-colors whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#672CFF]"
-                  >
-                    {SITE_CONTENT.hero.secondaryCta}
-                  </a>
-                </div>
+                  {/* Primary & Secondary CTA Buttons */}
+                  <div className="flex flex-wrap items-center gap-4 mt-9">
+                    <a
+                      href={BOOKING_HIRING_HREF}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2.5 bg-[#672CFF] hover:bg-[#2F198C] text-white text-sm sm:text-[15px] font-semibold px-7 py-4 rounded-xl transition-colors whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF2C5B]"
+                    >
+                      <span>{SITE_CONTENT.hero.primaryCta}</span>
+                      <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                    </a>
 
-                {/* Benefits Checklist */}
-                <div className="border-t border-[#3D3D4A]/50 mt-10 pt-5 max-w-[560px]">
-                  <ul className="flex flex-wrap items-center gap-x-6 gap-y-2.5 text-xs sm:text-[13px] text-white/85 font-medium">
-                    {SITE_CONTENT.hero.benefits.map((benefit) => (
-                      <li
-                        key={benefit}
-                        className="inline-flex items-center gap-2 whitespace-nowrap"
-                      >
-                        <Check className="w-3.5 h-3.5 text-[#FF2C5B] stroke-[3] shrink-0" />
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
+                    <a
+                      href={CONTACT_CONFIG.emailHref}
+                      className="inline-flex items-center justify-center border border-[#3D3D4A] hover:border-[#8B8B94] bg-transparent text-white text-sm sm:text-[15px] font-semibold px-9 py-4 rounded-xl transition-colors whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#672CFF]"
+                    >
+                      {SITE_CONTENT.hero.secondaryCta}
+                    </a>
+                  </div>
+
+                  {/* Benefits Checklist */}
+                  <div className="border-t border-[#3D3D4A]/50 mt-10 pt-5 max-w-[560px]">
+                    <ul className="flex flex-wrap items-center gap-x-6 gap-y-2.5 text-xs sm:text-[13px] text-white/85 font-medium">
+                      {SITE_CONTENT.hero.benefits.map((benefit) => (
+                        <li
+                          key={benefit}
+                          className="inline-flex items-center gap-2 whitespace-nowrap"
+                        >
+                          <Check className="w-3.5 h-3.5 text-[#FF2C5B] stroke-[3] shrink-0" />
+                          <span>{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
 
@@ -366,23 +387,38 @@ export default function App() {
         {/* ================= 3. WHO WE HELP ================= */}
         <section id="who-we-help" className="bg-white py-20 lg:py-28 scroll-mt-24">
           <div className="max-w-[1140px] mx-auto px-5 sm:px-8">
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12">
-              <div className="max-w-[600px]">
-                <p className="text-[11px] font-bold tracking-[0.15em] text-[#672CFF] uppercase mb-3">
-                  {SITE_CONTENT.whoWeHelp.eyebrow}
-                </p>
-                <h2 className="text-3xl sm:text-5xl lg:text-[48px] font-bold text-black tracking-[-0.025em] leading-[1.08]">
-                  {SITE_CONTENT.whoWeHelp.headingPrefix}
-                  <span className="font-serif-italic font-semibold text-[#672CFF]">
-                    {SITE_CONTENT.whoWeHelp.headingItalic}
-                  </span>
-                  {SITE_CONTENT.whoWeHelp.headingSuffix}
-                </h2>
-              </div>
+            <div className="relative rounded-[24px] overflow-hidden p-6 sm:p-10 lg:p-12 shadow-sm border border-[#EFEFF1]">
+              {/* Background Image for WHO WE HELP header block */}
+              <img
+                src="/assets/who-we-help-bg.webp"
+                alt=""
+                aria-hidden="true"
+                className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover object-center z-0"
+              />
+              {/* Light translucent veil so the background picture stays vibrant while text is easy to read */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-white/45 z-0"
+              />
 
-              <p className="text-sm sm:text-[15px] text-[#3D3D4A] leading-relaxed max-w-[440px]">
-                {SITE_CONTENT.whoWeHelp.paragraph}
-              </p>
+              <div className="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12 [text-shadow:0_1px_12px_rgba(255,255,255,0.95)]">
+                <div className="max-w-[600px]">
+                  <p className="text-[11px] font-bold tracking-[0.15em] text-[#672CFF] uppercase mb-3">
+                    {SITE_CONTENT.whoWeHelp.eyebrow}
+                  </p>
+                  <h2 className="text-3xl sm:text-5xl lg:text-[48px] font-bold text-black tracking-[-0.025em] leading-[1.08]">
+                    {SITE_CONTENT.whoWeHelp.headingPrefix}
+                    <span className="font-serif-italic font-semibold text-[#672CFF]">
+                      {SITE_CONTENT.whoWeHelp.headingItalic}
+                    </span>
+                    {SITE_CONTENT.whoWeHelp.headingSuffix}
+                  </h2>
+                </div>
+
+                <p className="text-sm sm:text-[15px] text-black font-semibold leading-relaxed max-w-[440px]">
+                  {SITE_CONTENT.whoWeHelp.paragraph}
+                </p>
+              </div>
             </div>
 
             <div className="mt-12">
@@ -396,10 +432,26 @@ export default function App() {
                   return (
                     <div
                       key={industry.id}
-                      className="rounded-[20px] border border-[#EFEFF1] bg-white p-6 flex flex-col justify-between gap-5 hover:border-[#C2ABFF] transition-colors"
+                      className="relative overflow-hidden rounded-[20px] border border-[#EFEFF1] bg-white p-6 flex flex-col justify-between gap-5 min-h-[148px] hover:border-[#C2ABFF] transition-colors"
                     >
+                      {industry.bgImage && (
+                        <>
+                          <img
+                            src={industry.bgImage}
+                            alt=""
+                            aria-hidden="true"
+                            className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover object-right z-0"
+                          />
+                          {/* Covers the baked-in left icon in the source image while keeping the right-side artwork 100% sharp and unblurred */}
+                          <div
+                            aria-hidden="true"
+                            className="pointer-events-none absolute inset-y-0 left-0 w-[34%] bg-gradient-to-r from-white via-white/95 to-transparent z-0"
+                          />
+                        </>
+                      )}
+
                       <div
-                        className={`w-11 h-11 rounded-xl flex items-center justify-center ${
+                        className={`relative z-10 w-11 h-11 rounded-xl flex items-center justify-center ${
                           isPink
                             ? 'bg-[#FFEEF2] text-[#FF2C5B]'
                             : 'bg-[#EDE6FF] text-[#672CFF]'
@@ -407,7 +459,7 @@ export default function App() {
                       >
                         <IndustryIcon type={industry.iconType} />
                       </div>
-                      <h3 className="text-sm sm:text-[15px] font-bold text-black leading-snug">
+                      <h3 className="relative z-10 text-sm sm:text-[15px] font-bold text-black leading-snug [text-shadow:0_1px_10px_rgba(255,255,255,0.95)]">
                         {industry.name}
                       </h3>
                     </div>
@@ -421,19 +473,34 @@ export default function App() {
         {/* ================= 4. HOW WE HELP ================= */}
         <section id="how-we-help" className="bg-[#EDE6FF] py-20 lg:py-28 scroll-mt-24">
           <div className="max-w-[1140px] mx-auto px-5 sm:px-8">
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12">
-              <div className="max-w-[600px]">
-                <p className="text-[11px] font-bold tracking-[0.15em] text-[#672CFF] uppercase mb-3">
-                  {SITE_CONTENT.howWeHelp.eyebrow}
-                </p>
-                <h2 className="text-3xl sm:text-5xl lg:text-[48px] font-bold text-black tracking-[-0.025em] leading-[1.1]">
-                  {SITE_CONTENT.howWeHelp.heading}
-                </h2>
-              </div>
+            <div className="relative rounded-[24px] overflow-hidden p-6 sm:p-10 lg:p-12 shadow-sm border border-[#C2ABFF]/50">
+              {/* Background Image for HOW WE HELP header block */}
+              <img
+                src="/assets/how-we-help-bg.webp"
+                alt=""
+                aria-hidden="true"
+                className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover object-center z-0"
+              />
+              {/* Light translucent veil so the background picture stays vibrant while text is easy to read */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-white/45 z-0"
+              />
 
-              <p className="text-sm sm:text-[15px] text-[#3D3D4A] leading-relaxed max-w-[420px]">
-                {SITE_CONTENT.howWeHelp.paragraph}
-              </p>
+              <div className="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12 [text-shadow:0_1px_12px_rgba(255,255,255,0.95)]">
+                <div className="max-w-[600px]">
+                  <p className="text-[11px] font-bold tracking-[0.15em] text-[#672CFF] uppercase mb-3">
+                    {SITE_CONTENT.howWeHelp.eyebrow}
+                  </p>
+                  <h2 className="text-3xl sm:text-5xl lg:text-[48px] font-bold text-black tracking-[-0.025em] leading-[1.1]">
+                    {SITE_CONTENT.howWeHelp.heading}
+                  </h2>
+                </div>
+
+                <p className="text-sm sm:text-[15px] text-black font-semibold leading-relaxed max-w-[420px]">
+                  {SITE_CONTENT.howWeHelp.paragraph}
+                </p>
+              </div>
             </div>
 
             {/* Five Service Cards + Closing Custom Role Card in 3-Column Grid */}
@@ -644,23 +711,123 @@ export default function App() {
           className="bg-white py-20 lg:py-28 border-b border-[#EFEFF1] scroll-mt-24"
         >
           <div className="max-w-[1140px] mx-auto px-5 sm:px-8">
-            <div className="max-w-[820px] mx-auto text-center">
-              <p className="text-[11px] font-bold tracking-[0.15em] text-[#FF2C5B] uppercase mb-4">
-                {SITE_CONTENT.ourMission.eyebrow}
-              </p>
-              <h2 className="text-3xl sm:text-5xl lg:text-[46px] font-bold text-black tracking-[-0.025em] leading-[1.15]">
-                <span className="block">{SITE_CONTENT.ourMission.headingLine1}</span>
-                <span className="block mt-1">
-                  <span className="font-serif-italic font-semibold text-[#672CFF]">
-                    {SITE_CONTENT.ourMission.headingLine2Italic}
-                  </span>
-                  {SITE_CONTENT.ourMission.headingLine2Suffix}
-                </span>
-              </h2>
+            <div className="max-w-[880px] mx-auto text-center">
+              {/* OUR MISSION Text Block with Background Picture */}
+              <div className="relative rounded-[28px] overflow-hidden px-5 py-10 sm:px-10 sm:py-14 shadow-sm border border-[#EFEFF1]">
+                <img
+                  src="/assets/our-mission-bg.webp"
+                  alt=""
+                  aria-hidden="true"
+                  className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover object-top z-0"
+                />
+                {/* Balanced light veil (no blur) so the background photo is sharp and text is easy to read */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 bg-white/45 z-0"
+                />
 
-              <div className="mt-8 space-y-5 text-sm sm:text-base text-[#3D3D4A] leading-relaxed max-w-[720px] mx-auto">
-                <p>{SITE_CONTENT.ourMission.paragraph1}</p>
-                <p>{SITE_CONTENT.ourMission.paragraph2}</p>
+                <div className="relative z-10 [text-shadow:0_1px_14px_rgba(255,255,255,0.98)]">
+                  <p className="text-[11px] font-bold tracking-[0.15em] text-[#FF2C5B] uppercase mb-4">
+                    {SITE_CONTENT.ourMission.eyebrow}
+                  </p>
+                  <h2 className="text-3xl sm:text-5xl lg:text-[46px] font-bold text-black tracking-[-0.025em] leading-[1.15]">
+                    <span className="block">{SITE_CONTENT.ourMission.headingLine1}</span>
+                    <span className="block mt-1">
+                      <span className="font-serif-italic font-semibold text-[#672CFF]">
+                        {SITE_CONTENT.ourMission.headingLine2Italic}
+                      </span>
+                      {SITE_CONTENT.ourMission.headingLine2Suffix}
+                    </span>
+                  </h2>
+
+                  <div className="mt-8 space-y-5 text-sm sm:text-base text-black font-semibold leading-relaxed max-w-[720px] mx-auto">
+                    <p>{SITE_CONTENT.ourMission.paragraph1}</p>
+                    <p>{SITE_CONTENT.ourMission.paragraph2}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Guaranteed Result Animated Block (matches reference video) */}
+              <div className="mt-14 flex flex-col items-center">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#FF2C5B] tracking-tight mb-5">
+                  Guaranteed Result
+                </h3>
+
+                <div className="w-full max-w-[310px] sm:max-w-[340px] aspect-square rounded-[24px] bg-[#2F198C] flex items-center justify-center shadow-[0_18px_45px_rgba(47,25,140,0.22)] overflow-hidden">
+                  <svg
+                    viewBox="0 0 240 240"
+                    className="w-[220px] h-[220px] sm:w-[240px] sm:h-[240px] overflow-visible"
+                    aria-label="Guaranteed Result Animation"
+                  >
+                    <defs>
+                      <linearGradient id="topDotDropTrail" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#672CFF" stopOpacity="0" />
+                        <stop offset="45%" stopColor="#672CFF" stopOpacity="0.65" />
+                        <stop offset="100%" stopColor="#FF4D94" stopOpacity="0.95" />
+                      </linearGradient>
+                    </defs>
+
+                    {/* Spin Motion Trail Layer 2 (furthest lag during spin) */}
+                    <g
+                      style={{ transformOrigin: '120px 120px' }}
+                      className="animate-guaranteed-trail-2"
+                    >
+                      <circle cx="120" cy="64" r="15" fill="#FF4D94" />
+                      <circle cx="159.6" cy="80.4" r="15" fill="#9E1B46" />
+                      <circle cx="176" cy="120" r="15" fill="#FF3B7F" />
+                      <circle cx="159.6" cy="159.6" r="15" fill="#FF2C79" />
+                      <circle cx="120" cy="176" r="15" fill="#9E1B46" />
+                      <circle cx="80.4" cy="159.6" r="15" fill="#FF55A3" />
+                      <circle cx="64" cy="120" r="15" fill="#8A183E" />
+                      <circle cx="80.4" cy="80.4" r="15" fill="#A61F4C" />
+                    </g>
+
+                    {/* Spin Motion Trail Layer 1 (closer lag during spin) */}
+                    <g
+                      style={{ transformOrigin: '120px 120px' }}
+                      className="animate-guaranteed-trail-1"
+                    >
+                      <circle cx="120" cy="64" r="15" fill="#FF4D94" />
+                      <circle cx="159.6" cy="80.4" r="15" fill="#9E1B46" />
+                      <circle cx="176" cy="120" r="15" fill="#FF3B7F" />
+                      <circle cx="159.6" cy="159.6" r="15" fill="#FF2C79" />
+                      <circle cx="120" cy="176" r="15" fill="#9E1B46" />
+                      <circle cx="80.4" cy="159.6" r="15" fill="#FF55A3" />
+                      <circle cx="64" cy="120" r="15" fill="#8A183E" />
+                      <circle cx="80.4" cy="80.4" r="15" fill="#A61F4C" />
+                    </g>
+
+                    {/* Primary 8-Dot Rotating Ring */}
+                    <g
+                      style={{ transformOrigin: '120px 120px' }}
+                      className="animate-guaranteed-ring"
+                    >
+                      {/* Top Dot Vertical Drop Trail + Top Dot */}
+                      <g className="animate-guaranteed-top-trail">
+                        <rect
+                          x="103"
+                          y="24"
+                          width="34"
+                          height="44"
+                          rx="17"
+                          fill="url(#topDotDropTrail)"
+                        />
+                      </g>
+                      <g className="animate-guaranteed-top-dot">
+                        <circle cx="120" cy="64" r="15" fill="#FF4D94" />
+                      </g>
+
+                      {/* Remaining 7 Dots */}
+                      <circle cx="159.6" cy="80.4" r="15" fill="#9E1B46" />
+                      <circle cx="176" cy="120" r="15" fill="#FF3B7F" />
+                      <circle cx="159.6" cy="159.6" r="15" fill="#FF2C79" />
+                      <circle cx="120" cy="176" r="15" fill="#9E1B46" />
+                      <circle cx="80.4" cy="159.6" r="15" fill="#FF55A3" />
+                      <circle cx="64" cy="120" r="15" fill="#8A183E" />
+                      <circle cx="80.4" cy="80.4" r="15" fill="#A61F4C" />
+                    </g>
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
