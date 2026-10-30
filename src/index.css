@@ -17,6 +17,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
     color: var(--brand-black);

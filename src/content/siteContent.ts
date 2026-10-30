@@ -20,11 +20,13 @@ export const BRAND_COLORS = {
 } as const;
 
 export const CONTACT_CONFIG = {
-  email: 'maidah@recruither.co',
-  displayPhone: '0301 8497895',
-  internationalPhone: '+92 301 8497895',
-  emailHref: 'mailto:maidah@recruither.co',
-  phoneHref: 'tel:+923018497895',
+  email: 'hello@recruither.co',
+  displayPhone: '(505) 359-4039',
+  internationalPhone: '+1 (505) 359-4039',
+  emailHref: 'mailto:hello@recruither.co',
+  phoneHref: 'tel:+15053594039',
+  addressLine1: '1209 Mountain Road Pl NE, Ste N',
+  addressLine2: 'Albuquerque, NM 87110',
   calendlyUrl: 'https://calendly.com/maidah-recruither/discovery-call',
   /**
    * Verified official company LinkedIn URL for Recruit Her Global LLC.
@@ -81,6 +83,7 @@ export const SITE_CONTENT = {
       { label: 'How We Help', href: '#how-we-help' },
       { label: 'How It Works', href: '#our-process' },
       { label: 'Our Mission', href: '#our-mission' },
+      { label: 'Contact Us', href: '#contact' },
     ],
     ctaLabel: 'Get Started',
   },
@@ -395,6 +398,14 @@ export const SITE_CONTENT = {
   footer: {
     description:
       'Dedicated remote staff from $8/hour. Connecting international organizations with experienced, vetted professionals.',
+    quickLinks: [
+      { label: 'Who We Help', href: '#who-we-help' },
+      { label: 'How We Help', href: '#how-we-help' },
+      { label: 'Our Mission', href: '#our-mission' },
+      { label: 'Hiring Process', href: '#our-process' },
+      { label: 'The Investment', href: '#the-investment' },
+      { label: 'Contact Us', href: '#contact' },
+    ],
     getCopyright: () => `© ${new Date().getFullYear()} RecruitHer. All rights reserved.`,
   },
 };

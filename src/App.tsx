@@ -11,10 +11,14 @@ import {
   Calculator,
   Calendar,
   Check,
+  ChevronRight,
   Clock,
   Headphones,
+  Heart,
   Languages,
   Layers,
+  Mail,
+  MapPin,
   Menu,
   Monitor,
   Phone,
@@ -1031,7 +1035,7 @@ export default function App() {
         </section>
 
         {/* ================= 9. THE INVESTMENT ================= */}
-        <section className="bg-[#EDE6FF] py-20 lg:py-28">
+        <section id="the-investment" className="bg-[#EDE6FF] py-20 lg:py-28 scroll-mt-24">
           <div className="max-w-[1140px] mx-auto px-5 sm:px-8">
             <div className="max-w-[680px]">
               <p className="text-[11px] font-bold tracking-[0.15em] text-[#672CFF] uppercase mb-3">
@@ -1138,89 +1142,200 @@ export default function App() {
         </section>
       </main>
 
-      {/* ================= 10. FOOTER ================= */}
-      <footer className="bg-black text-white pt-16 pb-12 border-t border-[#3D3D4A]/40">
-        <div className="max-w-[1140px] mx-auto px-5 sm:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#3D3D4A]/40">
-            {/* Brand + Short Description */}
-            <div className="md:col-span-6 lg:col-span-7">
+      {/* ================= 10. CONTACT US FOOTER ================= */}
+      <footer
+        id="contact"
+        className="relative overflow-hidden bg-[#06030F] text-white pt-16 sm:pt-20 pb-12 border-t border-white/10 scroll-mt-20"
+      >
+        {/* Ambient Purple & Pink Gradient Glows (GPU-safe radial gradients) */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-36 -left-28 w-[420px] h-[420px] rounded-full opacity-90"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(255,44,91,0.22) 0%, rgba(103,44,255,0.12) 48%, rgba(6,3,15,0) 74%)',
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-32 right-0 w-[460px] h-[460px] rounded-full opacity-90"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(103,44,255,0.26) 0%, rgba(255,44,91,0.14) 45%, rgba(6,3,15,0) 74%)',
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-36 -right-20 w-[380px] h-[380px] rounded-full opacity-85"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(255,44,91,0.22) 0%, rgba(47,25,140,0.18) 50%, rgba(6,3,15,0) 75%)',
+          }}
+        />
+
+        <div className="relative z-10 max-w-[1180px] mx-auto px-5 sm:px-8">
+          {/* Three-Column Desktop Layout, Vertically Stacked on Mobile */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 pb-14 border-b border-white/10">
+            {/* LEFT COLUMN: Contact Us */}
+            <div className="lg:col-span-5 lg:pr-10 lg:border-r lg:border-white/10">
+              <div className="inline-flex items-center rounded-full border border-[#FF2C5B]/60 bg-[#FF2C5B]/10 px-4 py-1.5 mb-5">
+                <span className="text-[11px] font-bold tracking-[0.15em] text-[#FF2C5B] uppercase">
+                  Contact Us
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.025em] leading-[1.12] text-white">
+                <span className="block">Let&rsquo;s Build</span>
+                <span className="block mt-1">
+                  Your Team <span className="text-[#FF2C5B]">Together.</span>
+                </span>
+              </h2>
+
+              <p className="text-sm sm:text-[15px] text-[#C2ABFF]/80 leading-relaxed mt-3.5 max-w-[380px]">
+                Have questions or ready to get started? We&rsquo;d love to hear from you.
+              </p>
+
+              {/* Contact Details List */}
+              <div className="mt-8 space-y-5">
+                {/* Office Address */}
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-2xl border border-[#672CFF]/60 bg-[#672CFF]/15 shadow-[0_0_22px_rgba(103,44,255,0.25)] flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-[#C2ABFF] stroke-[2]" />
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-semibold tracking-[0.13em] text-[#8B8B94] uppercase">
+                      Office Address
+                    </p>
+                    <p className="text-sm sm:text-[15px] font-medium text-white leading-snug mt-1">
+                      <span className="block">{CONTACT_CONFIG.addressLine1}</span>
+                      <span className="block">{CONTACT_CONFIG.addressLine2}</span>
+                    </p>
+                  </div>
+                </div>
+
+                {/* Phone */}
+                <a
+                  href={CONTACT_CONFIG.phoneHref}
+                  className="group flex items-center gap-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF2C5B] rounded-xl"
+                >
+                  <div className="w-12 h-12 rounded-2xl border border-[#FF2C5B]/60 bg-[#FF2C5B]/15 group-hover:bg-[#FF2C5B]/25 group-hover:border-[#FF2C5B] shadow-[0_0_22px_rgba(255,44,91,0.22)] flex items-center justify-center shrink-0 transition-all">
+                    <Phone className="w-5 h-5 text-[#FF2C5B] stroke-[2]" />
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-semibold tracking-[0.13em] text-[#8B8B94] uppercase">
+                      Phone
+                    </p>
+                    <p className="text-sm sm:text-[15px] font-medium text-white group-hover:text-[#FFABBD] transition-colors mt-0.5">
+                      {CONTACT_CONFIG.displayPhone}
+                    </p>
+                  </div>
+                </a>
+
+                {/* Email */}
+                <a
+                  href={CONTACT_CONFIG.emailHref}
+                  className="group flex items-center gap-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#672CFF] rounded-xl"
+                >
+                  <div className="w-12 h-12 rounded-2xl border border-[#672CFF]/60 bg-[#672CFF]/15 group-hover:bg-[#672CFF]/25 group-hover:border-[#672CFF] shadow-[0_0_22px_rgba(103,44,255,0.25)] flex items-center justify-center shrink-0 transition-all">
+                    <Mail className="w-5 h-5 text-[#C2ABFF] stroke-[2]" />
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-semibold tracking-[0.13em] text-[#8B8B94] uppercase">
+                      Email
+                    </p>
+                    <p className="text-sm sm:text-[15px] font-medium text-white group-hover:text-[#C2ABFF] transition-colors mt-0.5 break-all">
+                      {CONTACT_CONFIG.email}
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            {/* CENTER COLUMN: RecruitHer Branding */}
+            <div className="lg:col-span-4 lg:px-10 flex flex-col justify-center">
               <a
                 href="#top"
-                className="inline-flex items-center gap-2.5 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#672CFF] rounded-md"
+                className="inline-flex items-center gap-3 whitespace-nowrap self-start focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#672CFF] rounded-md"
+                aria-label="RecruitHer Home"
               >
-                <BrandMark variant="logo" className="w-5 h-6 shrink-0" />
-                <span className="text-lg tracking-tight text-white">
+                <BrandMark variant="logo" className="w-8 h-9 shrink-0" />
+                <span className="text-2xl sm:text-[26px] tracking-tight text-white">
                   <span className="font-bold">Recruit</span>
                   <span className="font-medium">Her</span>
                 </span>
               </a>
-              <p className="text-xs sm:text-[13px] text-[#8B8B94] leading-relaxed mt-4 max-w-[360px]">
+
+              <p className="text-sm sm:text-[15px] text-[#C2ABFF]/80 leading-relaxed mt-5">
                 {SITE_CONTENT.footer.description}
               </p>
-            </div>
 
-            {/* Company Navigation */}
-            <div className="md:col-span-3 lg:col-span-2">
-              <h3 className="text-[11px] font-bold tracking-[0.14em] text-white uppercase mb-4">
-                COMPANY
-              </h3>
-              <ul className="space-y-2.5 text-xs sm:text-[13px] text-[#8B8B94]">
-                {SITE_CONTENT.header.navItems.map((item) => (
-                  <li key={item.href}>
-                    <a
-                      href={item.href}
-                      className="hover:text-white transition-colors"
-                    >
-                      {item.label}
-                    </a>
+              {/* Verified Hero Benefits */}
+              <ul className="space-y-3.5 mt-7">
+                {SITE_CONTENT.hero.benefits.map((benefit) => (
+                  <li key={benefit} className="flex items-center gap-3 text-sm text-white/90">
+                    <span className="w-6 h-6 rounded-full border border-[#FF2C5B] bg-[#FF2C5B]/10 flex items-center justify-center shrink-0">
+                      <Check className="w-3.5 h-3.5 text-[#FF2C5B] stroke-[2.6]" />
+                    </span>
+                    <span>{benefit}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Contact Us */}
-            <div className="md:col-span-3 lg:col-span-3">
-              <h3 className="text-[11px] font-bold tracking-[0.14em] text-white uppercase mb-4">
-                CONTACT US
-              </h3>
-              <ul className="space-y-2.5 text-xs sm:text-[13px] text-[#8B8B94]">
-                <li>
+            {/* RIGHT COLUMN: Quick Links & Follow Us */}
+            <div className="lg:col-span-3 lg:pl-10 lg:border-l lg:border-white/10 flex flex-col justify-between">
+              <div>
+                <h3 className="text-base sm:text-lg font-bold text-white tracking-tight mb-5">
+                  Quick Links
+                </h3>
+
+                <ul className="space-y-3">
+                  {SITE_CONTENT.footer.quickLinks.map((item) => (
+                    <li key={`${item.label}-${item.href}`}>
+                      <a
+                        href={item.href}
+                        className="group flex items-center justify-between py-1 text-sm sm:text-[15px] text-[#C2ABFF]/80 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#672CFF] rounded-sm"
+                      >
+                        <span>{item.label}</span>
+                        <ChevronRight className="w-4 h-4 text-[#FF2C5B] group-hover:translate-x-1 transition-transform shrink-0" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {CONTACT_CONFIG.linkedinUrl.trim() !== '' && (
+                <div className="mt-8 pt-6 border-t border-white/10 lg:border-t-0 lg:pt-0">
+                  <h3 className="text-base sm:text-lg font-bold text-white tracking-tight mb-3.5">
+                    Follow Us
+                  </h3>
                   <a
-                    href={CONTACT_CONFIG.emailHref}
-                    className="hover:text-white transition-colors break-all"
+                    href={CONTACT_CONFIG.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Follow RecruitHer on LinkedIn"
+                    className="w-11 h-11 rounded-2xl border border-[#672CFF]/60 bg-[#672CFF]/15 hover:bg-[#672CFF]/30 hover:border-[#672CFF] shadow-[0_0_20px_rgba(103,44,255,0.22)] inline-flex items-center justify-center text-white transition-all focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF2C5B]"
                   >
-                    {CONTACT_CONFIG.email}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={CONTACT_CONFIG.phoneHref}
-                    className="inline-flex items-center gap-2 hover:text-white transition-colors"
-                    title={CONTACT_CONFIG.internationalPhone}
-                  >
-                    <Phone className="w-3.5 h-3.5 text-[#FF2C5B] shrink-0" />
-                    <span>{CONTACT_CONFIG.displayPhone}</span>
-                  </a>
-                </li>
-                {CONTACT_CONFIG.linkedinUrl.trim() !== '' && (
-                  <li>
-                    <a
-                      href={CONTACT_CONFIG.linkedinUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-white transition-colors"
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-5 h-5 fill-current"
+                      aria-hidden="true"
                     >
-                      LinkedIn
-                    </a>
-                  </li>
-                )}
-              </ul>
+                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                    </svg>
+                  </a>
+                </div>
+              )}
             </div>
           </div>
 
-          {/* Copyright Row */}
-          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#8B8B94]">
+          {/* Bottom Copyright Row */}
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8B8B94]">
             <p>{SITE_CONTENT.footer.getCopyright()}</p>
+            <p className="inline-flex items-center gap-1.5 text-[#C2ABFF]/80">
+              <span>Empowering Women. Building Stronger Teams.</span>
+              <Heart className="w-3.5 h-3.5 text-[#FF2C5B] fill-[#FF2C5B] shrink-0" />
+            </p>
           </div>
         </div>
       </footer>
