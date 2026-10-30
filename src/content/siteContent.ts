@@ -58,6 +58,7 @@ export interface ServiceCardItem {
   description: string;
   iconType: 'scale' | 'calculator' | 'users' | 'calendar' | 'headset';
   iconAccent: 'purple' | 'pink';
+  bgImage?: string;
 }
 
 export interface AssessmentAreaItem {
@@ -212,6 +213,7 @@ export const SITE_CONTENT = {
           'Legal assistants, paralegals, intake specialists, and case support staff.',
         iconType: 'scale',
         iconAccent: 'purple',
+        bgImage: '/assets/services/legal-support.webp',
       },
       {
         id: 'finance-accounting',
@@ -220,6 +222,7 @@ export const SITE_CONTENT = {
           'Bookkeeping, accounting, payroll, and billing support.',
         iconType: 'calculator',
         iconAccent: 'pink',
+        bgImage: '/assets/services/finance-accounting.webp',
       },
       {
         id: 'human-resources',
@@ -228,6 +231,7 @@ export const SITE_CONTENT = {
           'HR coordinators, HR generalists, and recruiters.',
         iconType: 'users',
         iconAccent: 'purple',
+        bgImage: '/assets/services/human-resources.webp',
       },
       {
         id: 'administration',
@@ -236,6 +240,7 @@ export const SITE_CONTENT = {
           'Virtual assistants, executive assistants, and administrative support.',
         iconType: 'calendar',
         iconAccent: 'pink',
+        bgImage: '/assets/services/administration.webp',
       },
       {
         id: 'customer-support',
@@ -244,6 +249,7 @@ export const SITE_CONTENT = {
           'Customer service representatives and client support specialists.',
         iconType: 'headset',
         iconAccent: 'purple',
+        bgImage: '/assets/services/customer-support.webp',
       },
     ] as ServiceCardItem[],
     closingText:

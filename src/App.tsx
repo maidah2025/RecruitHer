@@ -466,30 +466,47 @@ export default function App() {
                 return (
                   <div
                     key={service.id}
-                    className="rounded-[22px] p-7 bg-white text-black border border-[#C2ABFF]/40 flex flex-col justify-between min-h-[250px]"
+                    className="relative overflow-hidden rounded-[22px] p-7 bg-white text-black border border-[#C2ABFF]/40 flex flex-col justify-between min-h-[250px]"
                   >
-                    <div>
+                    {service.bgImage && (
+                      <>
+                        <img
+                          src={service.bgImage}
+                          alt=""
+                          aria-hidden="true"
+                          referrerPolicy="no-referrer"
+                          className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover object-right z-0"
+                        />
+                        {/* Clean left-to-right veil so text is 100% readable while right-side artwork stays sharp and unblurred */}
+                        <div
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/80 to-white/15 z-0"
+                        />
+                      </>
+                    )}
+
+                    <div className="relative z-10">
                       <div
                         className={`w-11 h-11 rounded-xl flex items-center justify-center mb-6 ${iconBoxClasses}`}
                       >
                         <ServiceIcon type={service.iconType} />
                       </div>
 
-                      <h3 className="text-lg font-bold text-black tracking-tight leading-snug">
+                      <h3 className="text-lg font-bold text-black tracking-tight leading-snug [text-shadow:0_1px_10px_rgba(255,255,255,0.95)]">
                         {service.title}
                       </h3>
 
-                      <p className="text-xs sm:text-[13px] text-[#3D3D4A] leading-relaxed mt-2.5">
+                      <p className="text-xs sm:text-[13px] text-[#22222E] font-medium leading-relaxed mt-2.5 [text-shadow:0_1px_10px_rgba(255,255,255,0.95)]">
                         {service.description}
                       </p>
                     </div>
 
-                    <div className="pt-6">
+                    <div className="relative z-10 pt-6">
                       <a
                         href={BOOKING_HIRING_HREF}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#672CFF] hover:text-[#2F198C] transition-colors whitespace-nowrap"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#672CFF] hover:text-[#2F198C] transition-colors whitespace-nowrap [text-shadow:0_1px_8px_rgba(255,255,255,0.95)]"
                       >
                         <span>{SITE_CONTENT.howWeHelp.closingCtaLabel}</span>
                         <ArrowRight className="w-3.5 h-3.5 stroke-[2.2]" />
