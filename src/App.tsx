@@ -193,13 +193,13 @@ export default function App() {
                   <div className="absolute inset-0 animate-hero-grid [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_98%)]" />
 
                   {/* Alternating Purple <-> Pink Aurora Wave A */}
-                  <div className="absolute -top-16 -left-16 w-80 h-80 sm:w-[420px] sm:h-[420px] rounded-full blur-[54px] animate-hero-aurora-a" />
+                  <div className="absolute -top-16 -left-16 w-80 h-80 sm:w-[420px] sm:h-[420px] rounded-full animate-hero-aurora-a" />
 
                   {/* Alternating Pink <-> Purple Aurora Wave B */}
-                  <div className="absolute -bottom-16 -right-12 w-80 h-80 sm:w-[420px] sm:h-[420px] rounded-full blur-[54px] animate-hero-aurora-b" />
+                  <div className="absolute -bottom-16 -right-12 w-80 h-80 sm:w-[420px] sm:h-[420px] rounded-full animate-hero-aurora-b" />
 
                   {/* Diagonal sweeping light shimmer */}
-                  <div className="absolute inset-y-0 -left-1/4 w-2/3 blur-2xl animate-hero-sweep" />
+                  <div className="absolute inset-y-0 -left-1/4 w-2/3 animate-hero-sweep" />
                 </div>
 
                 {/* Foreground Content (unchanged) */}

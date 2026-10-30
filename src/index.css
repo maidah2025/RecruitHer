@@ -31,49 +31,37 @@
 }
 
 @keyframes heroAuroraWaveA {
-  0% {
-    transform: translate3d(-18%, -14%, 0) rotate(0deg) scale(1);
-    background: radial-gradient(circle, rgba(103, 44, 255, 0.58) 0%, rgba(47, 25, 140, 0.28) 48%, transparent 72%);
+  0%, 100% {
+    transform: translate3d(-14%, -10%, 0) scale(1);
+    opacity: 0.85;
   }
   50% {
-    transform: translate3d(24%, 18%, 0) rotate(25deg) scale(1.25);
-    background: radial-gradient(circle, rgba(255, 44, 91, 0.52) 0%, rgba(166, 31, 58, 0.24) 48%, transparent 72%);
-  }
-  100% {
-    transform: translate3d(-18%, -14%, 0) rotate(0deg) scale(1);
-    background: radial-gradient(circle, rgba(103, 44, 255, 0.58) 0%, rgba(47, 25, 140, 0.28) 48%, transparent 72%);
+    transform: translate3d(20%, 14%, 0) scale(1.22);
+    opacity: 1;
   }
 }
 
 @keyframes heroAuroraWaveB {
-  0% {
-    transform: translate3d(20%, 16%, 0) rotate(0deg) scale(1.1);
-    background: radial-gradient(circle, rgba(255, 44, 91, 0.5) 0%, rgba(166, 31, 58, 0.22) 48%, transparent 72%);
+  0%, 100% {
+    transform: translate3d(16%, 12%, 0) scale(1.1);
+    opacity: 0.85;
   }
   50% {
-    transform: translate3d(-22%, -15%, 0) rotate(-25deg) scale(0.92);
-    background: radial-gradient(circle, rgba(103, 44, 255, 0.56) 0%, rgba(47, 25, 140, 0.26) 48%, transparent 72%);
-  }
-  100% {
-    transform: translate3d(20%, 16%, 0) rotate(0deg) scale(1.1);
-    background: radial-gradient(circle, rgba(255, 44, 91, 0.5) 0%, rgba(166, 31, 58, 0.22) 48%, transparent 72%);
+    transform: translate3d(-18%, -12%, 0) scale(0.94);
+    opacity: 1;
   }
 }
 
 @keyframes heroLightSweep {
   0% {
-    transform: translateX(-120%) skewX(-24deg);
+    transform: translate3d(-120%, 0, 0) skewX(-24deg);
     opacity: 0;
   }
   25% {
     opacity: 0.75;
   }
-  50% {
-    transform: translateX(140%) skewX(-24deg);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(140%) skewX(-24deg);
+  50%, 100% {
+    transform: translate3d(140%, 0, 0) skewX(-24deg);
     opacity: 0;
   }
 }
@@ -88,21 +76,39 @@
 }
 
 .animate-hero-aurora-a {
+  background: radial-gradient(
+    circle,
+    rgba(103, 44, 255, 0.52) 0%,
+    rgba(47, 25, 140, 0.25) 45%,
+    rgba(0, 0, 0, 0) 72%
+  );
+  will-change: transform, opacity;
+  backface-visibility: hidden;
   animation: heroAuroraWaveA 6.5s ease-in-out infinite;
 }
 
 .animate-hero-aurora-b {
+  background: radial-gradient(
+    circle,
+    rgba(255, 44, 91, 0.46) 0%,
+    rgba(166, 31, 58, 0.22) 45%,
+    rgba(0, 0, 0, 0) 72%
+  );
+  will-change: transform, opacity;
+  backface-visibility: hidden;
   animation: heroAuroraWaveB 6.5s ease-in-out infinite;
 }
 
 .animate-hero-sweep {
   background: linear-gradient(
     90deg,
-    transparent 0%,
+    rgba(0, 0, 0, 0) 0%,
     rgba(103, 44, 255, 0.22) 35%,
-    rgba(255, 44, 91, 0.28) 65%,
-    transparent 100%
+    rgba(255, 44, 91, 0.26) 65%,
+    rgba(0, 0, 0, 0) 100%
   );
+  will-change: transform, opacity;
+  backface-visibility: hidden;
   animation: heroLightSweep 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
@@ -187,24 +193,40 @@
 }
 
 .animate-guaranteed-ring {
+  transform-box: view-box;
+  transform-origin: 120px 120px;
+  will-change: transform;
   animation: guaranteedRingSpin 4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 
 .animate-guaranteed-trail-1 {
+  transform-box: view-box;
+  transform-origin: 120px 120px;
+  will-change: transform, opacity;
   animation: guaranteedRingTrail1 4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 
 .animate-guaranteed-trail-2 {
+  transform-box: view-box;
+  transform-origin: 120px 120px;
+  will-change: transform, opacity;
   animation: guaranteedRingTrail2 4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 
 .animate-guaranteed-top-dot {
+  transform-box: view-box;
+  transform-origin: 120px 64px;
+  will-change: transform, opacity;
   animation: guaranteedTopDot 4s ease-in-out infinite;
 }
 
 .animate-guaranteed-top-trail {
+  transform-box: view-box;
+  transform-origin: 120px 46px;
+  will-change: transform, opacity;
   animation: guaranteedTopDotTrail 4s ease-in-out infinite;
 }
+
 
 
 
