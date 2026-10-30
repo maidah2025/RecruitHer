@@ -783,61 +783,288 @@ export default function App() {
           </div>
         </section>
 
-        {/* ================= 8. OUR PROCESS ================= */}
-        <section id="our-process" className="bg-white py-20 lg:py-28 scroll-mt-24">
-          <div className="max-w-[1140px] mx-auto px-5 sm:px-8">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+        {/* ================= 8. OUR PROCESS (HOW IT WORKS) ================= */}
+        <section
+          id="our-process"
+          className="relative overflow-hidden bg-[#FDF9FC] py-20 lg:py-28 scroll-mt-24 border-b border-[#F3E8F8]"
+        >
+          {/* Subtle Pastel Corner Shapes matching reference */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-24 -left-24 w-[320px] h-[320px] rounded-full bg-[#FFEAF2]/80"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-20 -right-24 w-[280px] h-[280px] rounded-full bg-[#EDE3FF]/75"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute top-24 -right-28 w-[240px] h-[240px] rounded-full bg-[#E1D2FF]/65"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-28 -left-20 w-[290px] h-[290px] rounded-full bg-[#EAE0FF]/75"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-28 -right-20 w-[300px] h-[300px] rounded-full bg-[#FFE8F0]/80"
+          />
+
+          <div className="relative z-10 max-w-[1140px] mx-auto px-5 sm:px-8">
+            {/* Top Header Row: Left Eyebrow + Heading | Right Subtext + Pink Underline */}
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12">
               <div>
-                <p className="text-[11px] font-bold tracking-[0.15em] text-[#672CFF] uppercase mb-3">
-                  {SITE_CONTENT.ourProcess.eyebrow}
-                </p>
-                <h2 className="text-3xl sm:text-5xl lg:text-[48px] font-bold text-black tracking-[-0.025em] leading-[1.1]">
-                  {SITE_CONTENT.ourProcess.heading}
+                <div className="inline-flex items-center justify-center rounded-xl border border-[#F99BBC] bg-white/85 px-6 py-2.5 shadow-[0_2px_10px_rgba(255,31,90,0.06)] mb-5">
+                  <span className="text-xs sm:text-[13px] font-bold tracking-[0.04em] text-[#0E0B16] uppercase">
+                    {SITE_CONTENT.ourProcess.eyebrow}
+                  </span>
+                </div>
+
+                <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-[-0.03em] leading-[1.08]">
+                  <span className="block">
+                    <span className="text-[#0A0614]">
+                      {SITE_CONTENT.ourProcess.headingLine1Black}
+                    </span>
+                    <span className="text-[#FF1F5A]">
+                      {SITE_CONTENT.ourProcess.headingLine1Pink}
+                    </span>
+                  </span>
+                  <span className="block text-[#6528FF] mt-1">
+                    {SITE_CONTENT.ourProcess.headingLine2Purple}
+                  </span>
                 </h2>
               </div>
 
+              <div className="lg:pb-3 lg:max-w-[430px]">
+                <p className="text-[15px] sm:text-[17px] font-normal text-[#3B354A] leading-snug">
+                  {SITE_CONTENT.ourProcess.rightSubtitleLine1}
+                </p>
+                <div className="mt-2 inline-block">
+                  <p className="text-[15px] sm:text-[17px] font-medium text-[#FF1F5A] leading-snug">
+                    {SITE_CONTENT.ourProcess.rightSubtitleLine2}
+                  </p>
+                  <div className="h-[2.5px] w-[72%] bg-[#FF1F5A] mt-2 rounded-full" />
+                </div>
+              </div>
+            </div>
+
+            {/* 3-Step Flow with Dashed Connectors & Center Dots */}
+            <div className="relative mt-14 sm:mt-20">
+              {/* Desktop Horizontal Dashed Connectors + Center Dots */}
+              <div
+                aria-hidden="true"
+                className="hidden md:block pointer-events-none absolute top-[58px] left-[16.666%] right-[16.666%] z-0"
+              >
+                <div className="grid grid-cols-2 items-center w-full">
+                  {/* Connector 1 -> 2 (Pink Dashed + Pink Dot) */}
+                  <div className="relative flex items-center justify-center px-14">
+                    <div className="w-full border-t-2 border-dashed border-[#FF3B72]/60" />
+                    <span className="absolute w-3.5 h-3.5 rounded-full bg-[#FF1F5A] ring-4 ring-[#FDF9FC]" />
+                  </div>
+
+                  {/* Connector 2 -> 3 (Purple Dashed + Purple Dot) */}
+                  <div className="relative flex items-center justify-center px-14">
+                    <div className="w-full border-t-2 border-dashed border-[#6528FF]/60" />
+                    <span className="absolute w-3.5 h-3.5 rounded-full bg-[#6528FF] ring-4 ring-[#FDF9FC]" />
+                  </div>
+                </div>
+              </div>
+
+              {/* 3 Steps Grid */}
+              <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+                {SITE_CONTENT.ourProcess.steps.map((step, idx) => {
+                  const isPurple = step.accent === 'purple';
+
+                  const cardBoxClasses = isPurple
+                    ? 'bg-gradient-to-b from-[#F5F0FF] to-[#EBE0FF] border-[#D8C4FF] shadow-[0_18px_38px_rgba(101,40,255,0.14)]'
+                    : 'bg-gradient-to-b from-[#FFF5F8] to-[#FFE8F0] border-[#FFD2E1] shadow-[0_18px_38px_rgba(255,31,90,0.13)]';
+
+                  const badgeClasses = isPurple
+                    ? 'bg-[#6528FF] shadow-[0_6px_14px_rgba(101,40,255,0.35)]'
+                    : 'bg-[#FF1F5A] shadow-[0_6px_14px_rgba(255,31,90,0.35)]';
+
+                  return (
+                    <div key={step.number} className="flex flex-col items-center text-center">
+                      {/* Rounded Square Icon Box + Bottom Number Pill */}
+                      <div className="relative">
+                        <div
+                          className={`w-[116px] h-[116px] rounded-[26px] border flex items-center justify-center ${cardBoxClasses}`}
+                        >
+                          {idx === 0 && (
+                            /* Step 01: Phone with Signal Waves (Pink-Red) */
+                            <svg
+                              viewBox="0 0 64 64"
+                              className="w-14 h-14"
+                              fill="none"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M35.5 15.5C41.8 16.4 46.8 21.4 47.7 27.7"
+                                stroke="#FF1F5A"
+                                strokeWidth="4.2"
+                                strokeLinecap="round"
+                              />
+                              <path
+                                d="M34.8 23.2C38.1 23.8 40.7 26.4 41.3 29.7"
+                                stroke="#FF1F5A"
+                                strokeWidth="4.2"
+                                strokeLinecap="round"
+                              />
+                              <path
+                                d="M21.2 15.2C19.6 15.2 18.1 15.9 17 17.1C14.7 19.6 13.8 23.6 15.6 28.8C17.8 35.2 22.8 41.7 29.1 45.9C33.8 49 38.4 50.1 42.1 48.9C44.2 48.2 46.2 46.5 47.2 44.5C48.1 42.8 47.6 40.7 46 39.6L40.3 35.6C38.8 34.6 36.8 34.9 35.6 36.2L33.9 38.1C30.2 36.2 26.9 32.9 25 29.2L26.9 27.5C28.2 26.3 28.5 24.3 27.5 22.8L23.5 17.1C22.9 15.9 22.1 15.2 21.2 15.2Z"
+                                fill="#FF1F5A"
+                              />
+                            </svg>
+                          )}
+
+                          {idx === 1 && (
+                            /* Step 02: 3 Vetted Specialists + Checkmark Badge (Purple) */
+                            <svg
+                              viewBox="0 0 64 64"
+                              className="w-14 h-14"
+                              fill="none"
+                              aria-hidden="true"
+                            >
+                              {/* Center Person Head */}
+                              <circle cx="32" cy="18.5" r="6.5" fill="#6528FF" />
+                              {/* Left Person Head */}
+                              <circle cx="19" cy="22.5" r="5" fill="#6528FF" />
+                              {/* Right Person Head */}
+                              <circle cx="45" cy="22.5" r="5" fill="#6528FF" />
+                              {/* Left Shoulder */}
+                              <path
+                                d="M10.5 38.5C10.5 33.8 14.2 30 18.8 30C20.5 30 22.1 30.5 23.4 31.4C21.4 33.4 20.1 36.1 19.9 39.2H11.5C10.9 39.2 10.5 38.9 10.5 38.5Z"
+                                fill="#6528FF"
+                              />
+                              {/* Right Shoulder */}
+                              <path
+                                d="M53.5 38.5C53.5 33.8 49.8 30 45.2 30C43.5 30 41.9 30.5 40.6 31.4C42.6 33.4 43.9 36.1 44.1 39.2H52.5C53.1 39.2 53.5 38.9 53.5 38.5Z"
+                                fill="#6528FF"
+                              />
+                              {/* Center Person Shoulders */}
+                              <path
+                                d="M22 38.5C22 32.7 26.5 28 32 28C37.5 28 42 32.7 42 38.5V40.5H22V38.5Z"
+                                fill="#6528FF"
+                              />
+                              {/* Checkmark Circle Badge */}
+                              <circle
+                                cx="32"
+                                cy="44.5"
+                                r="8.5"
+                                fill="#6528FF"
+                                stroke="#EFE7FF"
+                                strokeWidth="2.5"
+                              />
+                              <path
+                                d="M28.5 44.5L31 47L36 42"
+                                stroke="#FFFFFF"
+                                strokeWidth="2.6"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          )}
+
+                          {idx === 2 && (
+                            /* Step 03: Magnifying Glass with Person Inside (Pink-Red) */
+                            <svg
+                              viewBox="0 0 64 64"
+                              className="w-14 h-14"
+                              fill="none"
+                              aria-hidden="true"
+                            >
+                              {/* Outer Lens Ring */}
+                              <circle
+                                cx="29"
+                                cy="28"
+                                r="14.5"
+                                stroke="#FF1F5A"
+                                strokeWidth="4.5"
+                              />
+                              {/* Person Head inside lens */}
+                              <circle cx="29" cy="24" r="4.2" fill="#FF1F5A" />
+                              {/* Person Shoulders inside lens */}
+                              <path
+                                d="M21.5 35.2C22.4 31.8 25.4 29.6 29 29.6C32.6 29.6 35.6 31.8 36.5 35.2C34.4 37.1 31.8 38.2 29 38.2C26.2 38.2 23.6 37.1 21.5 35.2Z"
+                                fill="#FF1F5A"
+                              />
+                              {/* Magnifying Glass Handle */}
+                              <path
+                                d="M40.2 39.2L49.5 48.5"
+                                stroke="#FF1F5A"
+                                strokeWidth="6"
+                                strokeLinecap="round"
+                              />
+                            </svg>
+                          )}
+                        </div>
+
+                        {/* Overlapping Number Badge (01, 02, 03) */}
+                        <span
+                          className={`absolute -bottom-3.5 left-1/2 -translate-x-1/2 w-8 h-8 rounded-lg text-white text-xs font-bold flex items-center justify-center ${badgeClasses}`}
+                        >
+                          {step.number}
+                        </span>
+                      </div>
+
+                      {/* Step Title */}
+                      <h3 className="text-xl sm:text-[22px] font-extrabold text-[#0A0614] tracking-tight mt-8">
+                        {step.title}
+                      </h3>
+
+                      {/* Step Description */}
+                      <p className="text-sm sm:text-[15px] text-[#4A4458] leading-relaxed mt-2.5 max-w-[280px]">
+                        {step.description}
+                      </p>
+
+                      {/* Mobile Dashed Connector Between Steps */}
+                      {idx < 2 && (
+                        <div
+                          aria-hidden="true"
+                          className="md:hidden flex flex-col items-center mt-6 -mb-4"
+                        >
+                          <div
+                            className={`h-5 border-l-2 border-dashed ${
+                              idx === 0 ? 'border-[#FF3B72]/65' : 'border-[#6528FF]/65'
+                            }`}
+                          />
+                          <span
+                            className={`w-2.5 h-2.5 rounded-full my-1 ${
+                              idx === 0 ? 'bg-[#FF1F5A]' : 'bg-[#6528FF]'
+                            }`}
+                          />
+                          <div
+                            className={`h-5 border-l-2 border-dashed ${
+                              idx === 0 ? 'border-[#FF3B72]/65' : 'border-[#6528FF]/65'
+                            }`}
+                          />
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Bottom CTA Buttons: "Build Your Team in 48 Hours ->" & "Who We Help ->" */}
+            <div className="mt-14 sm:mt-16 flex flex-wrap items-center justify-center gap-4">
               <a
                 href={BOOKING_HIRING_HREF}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 self-start sm:self-auto bg-[#672CFF] hover:bg-[#2F198C] text-white text-xs sm:text-sm font-semibold px-6 py-3.5 rounded-xl transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF2C5B]"
+                className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#5B21FF] to-[#7C3AED] hover:from-[#4C16E0] hover:to-[#6626D9] text-white text-sm sm:text-[15px] font-bold px-7 py-4 rounded-xl shadow-[0_10px_26px_rgba(101,40,255,0.32)] transition-all whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF1F5A]"
               >
-                <span>{SITE_CONTENT.ourProcess.ctaLabel}</span>
-                <ArrowRight className="w-4 h-4 stroke-[2.2]" />
+                <span>{SITE_CONTENT.ourProcess.primaryCtaLabel}</span>
+                <ArrowRight className="w-4 h-4 stroke-[2.4]" />
               </a>
-            </div>
 
-            {/* Three Steps in a Row on Desktop, Stacked on Mobile */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
-              {SITE_CONTENT.ourProcess.steps.map((step) => {
-                const borderClass =
-                  step.accent === 'purple'
-                    ? 'border-[#672CFF]'
-                    : step.accent === 'pink'
-                    ? 'border-[#FF2C5B]'
-                    : 'border-black';
-
-                const numberColorClass =
-                  step.accent === 'purple'
-                    ? 'text-[#672CFF]'
-                    : step.accent === 'pink'
-                    ? 'text-[#FF2C5B]'
-                    : 'text-black';
-
-                return (
-                  <div key={step.number} className={`border-t-2 ${borderClass} pt-6`}>
-                    <p className={`text-xs font-bold ${numberColorClass} mb-2.5`}>
-                      {step.number}
-                    </p>
-                    <h3 className="text-lg sm:text-xl font-bold text-black tracking-tight">
-                      {step.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[#3D3D4A] leading-relaxed mt-2">
-                      {step.description}
-                    </p>
-                  </div>
-                );
-              })}
+              <a
+                href="#who-we-help"
+                className="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-[#FFF5F8] text-[#FF1F5A] border-[1.5px] border-[#FF1F5A] text-sm sm:text-[15px] font-bold px-7 py-4 rounded-xl shadow-[0_6px_18px_rgba(255,31,90,0.08)] transition-all whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6528FF]"
+              >
+                <span>{SITE_CONTENT.ourProcess.secondaryCtaLabel}</span>
+                <ArrowRight className="w-4 h-4 stroke-[2.4]" />
+              </a>
             </div>
           </div>
         </section>
