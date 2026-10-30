@@ -79,7 +79,7 @@ export const SITE_CONTENT = {
     navItems: [
       { label: 'Who We Help', href: '#who-we-help' },
       { label: 'How We Help', href: '#how-we-help' },
-      { label: 'Our Process', href: '#our-process' },
+      { label: 'How It Works', href: '#our-process' },
       { label: 'Our Mission', href: '#our-mission' },
     ],
     ctaLabel: 'Get Started',
