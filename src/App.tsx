@@ -12,7 +12,6 @@ import {
   Calendar,
   Check,
   Clock,
-  FileText,
   Headphones,
   Languages,
   Layers,
@@ -25,6 +24,7 @@ import {
   X,
 } from 'lucide-react';
 import { BrandMark, SparkleSeparator } from './components/BrandMark';
+import { TalentShowcase } from './components/TalentShowcase';
 import {
   AssessmentAreaItem,
   BOOKING_HIRING_HREF,
@@ -272,59 +272,9 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Right Column — Decorative Brand Graphic & Floating Role Cards */}
+              {/* Right Column — Interactive Talent Showcase */}
               <div className="lg:col-span-6 xl:col-span-6 flex justify-center lg:justify-end">
-                <div className="relative w-full max-w-[460px] sm:max-w-[500px] lg:mr-4 py-4">
-                  {/* Outer Dark Frame */}
-                  <div className="bg-[#2F198C]/20 rounded-[28px] p-5 sm:p-7 border border-[#3D3D4A]/40 shadow-2xl">
-                    <div className="bg-black rounded-[20px] h-[380px] sm:h-[440px] flex items-end justify-center pt-10 px-6 overflow-hidden relative">
-                      <BrandMark
-                        variant="decorative"
-                        className="w-[240px] sm:w-[285px] h-auto select-none translate-y-2"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Top-Left Floating Card: Customer Support */}
-                  <div className="absolute top-9 sm:top-12 left-2 sm:-left-7 bg-white text-black rounded-2xl px-4 sm:px-5 py-3.5 sm:py-4 shadow-[0_18px_40px_rgba(0,0,0,0.45)] flex items-center gap-3.5 max-w-[250px] sm:max-w-[290px] z-10">
-                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#EDE6FF] text-[#672CFF] flex items-center justify-center shrink-0">
-                      <Headphones className="w-5 h-5 stroke-[2]" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs sm:text-sm font-bold text-black leading-tight truncate">
-                        {SITE_CONTENT.hero.floatingCards.topCard.title}
-                      </p>
-                      <p className="text-[11px] sm:text-xs text-[#3D3D4A] mt-0.5 truncate">
-                        {SITE_CONTENT.hero.floatingCards.topCard.subtitle}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Middle-Right Floating Card */}
-                  <div className="absolute top-[42%] -translate-y-1/2 right-2 sm:-right-6 bg-[#FF2C5B] text-black rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4 shadow-[0_18px_40px_rgba(0,0,0,0.45)] z-10">
-                    <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-black/80">
-                      {SITE_CONTENT.hero.floatingCards.middleBadge.eyebrow}
-                    </p>
-                    <p className="text-base sm:text-xl font-bold text-black tracking-tight mt-0.5 whitespace-nowrap">
-                      {SITE_CONTENT.hero.floatingCards.middleBadge.title}
-                    </p>
-                  </div>
-
-                  {/* Bottom-Left Floating Card: Legal Support */}
-                  <div className="absolute bottom-8 sm:bottom-11 left-2 sm:-left-7 bg-white text-black rounded-2xl px-4 sm:px-5 py-3.5 sm:py-4 shadow-[0_18px_40px_rgba(0,0,0,0.45)] flex items-center gap-3.5 max-w-[250px] sm:max-w-[290px] z-10">
-                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#FFEEF2] text-[#FF2C5B] flex items-center justify-center shrink-0">
-                      <FileText className="w-5 h-5 stroke-[2]" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs sm:text-sm font-bold text-black leading-tight truncate">
-                        {SITE_CONTENT.hero.floatingCards.bottomCard.title}
-                      </p>
-                      <p className="text-[11px] sm:text-xs text-[#3D3D4A] mt-0.5 truncate">
-                        {SITE_CONTENT.hero.floatingCards.bottomCard.subtitle}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <TalentShowcase />
               </div>
             </div>
           </div>
