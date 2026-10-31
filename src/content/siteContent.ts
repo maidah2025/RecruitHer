@@ -83,7 +83,6 @@ export const SITE_CONTENT = {
       { label: 'Who We Help', href: '#who-we-help' },
       { label: 'How We Help', href: '#how-we-help' },
       { label: 'How It Works', href: '#our-process' },
-      { label: 'Our Mission', href: '#our-mission' },
       { label: 'Contact Us', href: '#contact' },
     ],
     ctaLabel: 'Get Started',
